@@ -1,4 +1,4 @@
-# 이 프로젝트는 [Loud.kr](https://loud.kr) 사이트의 모작입니다.
+# 이 프로젝트는 [loud.kr](https://loud.kr) 사이트의 모작입니다.
 
 ## Project Stack
   - express
