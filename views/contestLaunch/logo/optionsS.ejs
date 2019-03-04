@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+
+  <!--Font Ayarları -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/contest/options.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+    <form action="" method="post">
+    <input type="text" name="class" value="silver" hidden/>
+    <input type="text" class="VAT" name="VAT"value="0" hidden />
+    <input type="text" class="totalFee" name="totalFee" value="0" hidden />
+    <input type="text" class="registerFee" name="registerFee" value="100000" hidden/>
+    <input type="text" class="prizeCommiton" name="prizeCommiton" value="0" hidden/>
+    <input type="text" class="totalPrize" name="totalPrize" value="600000" hidden/>
+    <div class="calculator">
+        <div class="cal-coment"><p style="margin:0">결제 예정 금액</p></div>
+            <div class="cla-container">
+                <div class="cal-left">
+                    <p><span><input type="text" value="" disabled/></span>총 상금</p>
+                    <p><span><input type="text" value="" disabled/></span>공모전 등록비</p>
+                    <p><span><input type="text" value="" disabled/></span>상금 수수료</p>
+                    <p><span><input type="text" value="" disabled/></span>추가 옵션</p>
+                    <p><span><input type="text" value="" disabled/></span>부가가치세</p>
+                </div>
+                <div class="cal-right">
+                    <p><span><input type="text" class="totalPrize" name="totalPrize" value="600000" disabled/></span>원</p>
+                    <p><span><input type="text" class="registerFee" name="registerFee" value="100000" disabled/></span>원</p>
+                    <p><span><input type="text" class="prizeCommiton" name="prizeCommiton" value="0" disabled/></span>원</p>
+                    <p><span><input type="text" class="addOptions" value="0" disabled/></span>원</p>
+                    <p><span><input type="text" class="VAT" name="VAT"value="0" disabled/></span>원</p>                    
+                </div>
+                <hr class="hr1" />
+                <div class="sum-container">
+                    <div class="sum-left">
+                        <p>합계</p>
+                    </div>
+                    <div class="sum-right">
+                        <p><span><input type="text" class="totalFee" name="totalFee" value="0" disabled/></span>원</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="main-contain">
+      <div class="main-board">
+        <h1>step 3</h1>
+        <h4>콘테스트 상금 및 추가 옵션을 설정해주세요.</h4>
+      </div>
+      <hr class="hr" />
+      <div class="option-contain">
+        <h1>디자인 패키지를 선택해주세요.</h1>
+        <h6 style="font-size:15px;">(상세항목에 마우스를 대면, <b>자세한 설명이 나옵니다.</b>)</p>
+        <p class="title">디자인 콘테스트 등록비 <b>10만원</b></p>
+        <div class="pak-paket-uzun container">
+          <div class="pak-paket-uzun-ic container">
+            <div class="row paket-uzun">
+              <div class="row">
+                <div class="col-md-3 pad0 text-center bg-white">
+                  <div class="paket-adi paket-1">
+                    <img src="http://www.imgim.com/4768incic1869633.png">
+                    <h3>저가형</h3>
+                  </div>
+                  <ul class="nav paket-detay">
+                    <li class="first first-success paket-1-baslik">30<span class="kusur">만원~</span></li>
+                    <li>
+                      <h3 class="text-muted"><i class="fa fa-check text-muted"></i> <strong>1차 통과작 선정 <span class="text-danger">No</span></strong></h3>
+                    </li>
+                    <li>
+                      <h3 class="text-muted"><i class="fa fa-check text-muted"></i> <strong>신규 디자이너 참여 <span class="text-danger">No</span></strong></h3>
+                    </li>
+                    <li>
+                      <h3 class="text-muted"><i class="fa fa-check text-muted"></i> <strong>상금 환불<span class="text-danger">No</span></strong></h3>
+                    </li>
+                  </ul>
+                  <div class="buttons">
+                    <a href="/launch/new/logo/brief/options/bronze/<%= contest.id %>">
+                    <div class="btn btn-primary btn-lg">Choose Plan</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-3 pad0 text-center bg-white">
+                  <div class="paket-adi paket-2">
+                  <img src="http://www.imgim.com/business.png">
+                  <h3>일반형</h3>
+                </div>
+                <ul class="nav paket-detay">
+                  <li class="first first-primary paket-2-baslik">60<span class="kusur">만원~</span></li>
+                  <li>
+                    <h3><i class="fa fa-check text-parimary"></i> <strong>1차 통과작 선정 가능</strong></h3>
+                  </li>
+                  <li>
+                    <h3 class="text-muted"><i class="fa fa-check text-muted"></i> <strong>신규디자이너 참여 <span class="text-danger">No</span></strong></h3>
+                  </li>
+                  <li>
+                    <h3 class="text-muted"><i class="fa fa-check text-muted"></i> <strong>상금 환불<span class="text-danger">No</span></strong></h3>
+                  </li>
+                </ul>
+                <div class="buttons">
+                  <a href="/launch/new/logo/brief/options/silver/<%= contest.id %>">
+                  <div class="btn btn-primary btn-lg">Choose Plan</div>
+                  </a>
+                </div>
+              </div>
+                <div class="col-md-3 pad0 text-center bg-white golge">
+                  <div class="paket-adi paket-danger paket-3">
+                    <img src="http://www.imgim.com/unlimited.png">
+                    <h3>고급형</h3>
+                  </div>
+                    <ul class="nav paket-deta">
+                    <li class="first first-danger paket-3-baslik">90<span class="kusur">만원~</span></li>
+                    <li>
+                      <h3><i class="fa fa-check text-danger"></i> <strong>1차 통과작 선정 가능</strong></h3>
+                    </li>
+                    <li>
+                      <h3><i class="fa fa-check text-danger"></i> <strong>신규디자이너 참여 가능</strong></h3>
+                    </li>
+                    <li>
+                      <h3><i class="fa fa-check text-danger"></i> <strong>상금 50% 환불 가능</strong></h3>
+                    </li>
+                  </ul>
+                  <div class="buttons">
+                    <a href="/launch/new/logo/brief/options/gold/<%= contest.id %>">
+                    <div class="btn btn-primary btn-lg">Choose Plan</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-3 pad0 text-center bg-white">
+                  <div class="paket-adi paket-4">
+                  <img src="http://www.imgim.com/professional.png">
+                  <h3>프리미엄</h3>
+                </div>
+                <ul class="nav paket-detay">
+                  <li class="first first-warning paket-4-baslik">150<span class="kusur">만원~</span></li>
+                  <li>
+                    <h3><i class="fa fa-check text-warning"></i> <strong>1차 통과작 선정 가능</strong></h3>
+                  </li>
+                  <li>
+                    <h3><i class="fa fa-check text-warning"></i> <strong>신규 디자이너 참여 가능</strong></h3>
+                  </li>
+                  <li>
+                    <h3><i class="fa fa-check text-warning"></i> <strong>상금50% 환불 가능</strong></h3>
+                  </li>
+                  <li>
+                    <h3><i class="fa fa-check text-warning"></i> <strong>블로그/페이스북 등 <b>무료 홍보</b></strong></h3>
+                  </li>
+                  <li>
+                    <h3><i class="fa fa-check text-warning"></i> <strong>리스트 상위 노출</strong></h3>
+                  </li>
+                </ul>
+                <div class="buttons">
+                  <a href="/launch/new/logo/brief/options/platinum/<%= contest.id %>">
+                  <div class="btn btn-primary btn-lg" >Choose Plan</div>
+                  </a>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-8 pad0 ">
+              </div>
+            </div>
+          </div>
+        </div>
+         <!-- //Uzun container -->
+      </div>
+
+        <!-- Award Section -->
+        <div  class="award-contain">
+          <div class="award-left">
+            <h4><b>상금 직접입력하기</b></h4>
+            <p>상금이 높은 순서대로 리스트 상단에 노출되며,</p>
+            <p>디자이너의 참여도가 올라갑니다!</p>
+          </div>
+          <div class="award-right">
+            <div class="input-group">
+              <input type="number" class="awardForm1 form-control" name="award1" value="600000">
+              <span class="chk input-group-addon success award1-btn" style="cursor: pointer">적용</span></input>
+            </div>
+            <br/>
+            <div class="award-text">
+            <p>(최소상금 30만원)</p>
+            </div>
+          </div>
+        </div>
+        <!-- //Award Section -->
+
+
+        <hr class="hr" />
+        <div class="sub-award">
+          <div class="sub-left">
+            <h1>1.</h1>
+            <h4>2위/3위를 추가 선정하고 싶으신가요?</h4>
+            <p>2위/3위 상금을 추가하면 디자이너 참여가 늘어납니다.</p>
+          </div>
+          <div class="sub-right">
+            <div class="mainAward">
+              <input type="checkbox" id="award-sub" style="padding-right10px; margin:0 10px 0 0;">
+              <label for="award-sub"><p style="padding:0; margin:0;">2위/3위 우승 상금 설정</p></label>
+            </div>
+            <div class="subAward" >
+              <div class="subAward2">
+                <label style="width:100px; line-height:30px">2위 상금 </label>
+                <input type="number" class=" awardForm2 form-control" name="award2" value="0">
+                <span class="chk input-group-addon success award2-btn">적용</span></input>
+              </div>
+              <div class="subAward3">
+                <label style="width:100px; line-height:30px">3위 상금 </label>
+                <input type="number" class=" awardForm3 form-control" name="award3" value="0">
+                <span class="chk input-group-addon success award3-btn">적용</span></input>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //Sub-award -->
+
+
+        <hr class="hr" />
+        <!-- commition -->
+            <div class="commition">
+                <div class=section-left>
+                    <h1>2.</h1>
+                    <h4>상금이 100% 지급되길 원하시나요?</h4>
+                    <p>라우드소싱은 표시된 상금의 20%를(우승자세금포함)수수료로<br/>
+                    공제한후....
+                    </p>
+                </div>
+                <div class=section-right>
+                    <input type="checkbox" class="chk" name="commition" id="commition" style="padding-right10px; margin:0 10px 0 0;" value="0">
+                    <label for="commition"><p style="padding:0; margin:0;">상금 수수료 부담(상금의 100%가 디자이너에게 지급됩니다.)</p></label>
+                </div>
+            </div>
+        <!-- //commition -->
+
+
+        <hr class="hr" />
+        <!-- Period -->
+            <div class="period">
+                <div class=section-left>
+                    <h1>3.</h1>
+                    <h4>공모전 진행 기간을 설정해 주세요.</h4>
+                    <p>디자너이너분들이 공모전에 참여할 수 있는
+                    </p>
+                </div>
+                <div class="section-right" style="position:relative;">
+                    <div class="radio-section">
+                        <input type="radio" name="period" id="period1" value="1week" checked>
+                        <label for="period1"><p>1주일</p></label>
+                    </div>
+                    <div class="radio-section">  
+                        <input type="radio" class="chk" name="period" id="period2" value="2week">
+                        <label for="period2"><p>2주일(￦100,000)</p></label>
+                    </div>
+                    <div class="radio-section">             
+                        <input type="radio" class="chk" name="period" id="period3" value="3week">
+                        <label for="period3"><p>4주일(￦100,000)</p></label>
+                    </div>
+                    <div class="period-pharase" >
+                    <p>기본 콘테스트 기간은 1주일입니다. <br/>
+                    아래 4번에서 FAST CONTEST 옵션을 선택하면 공모 기간을 3일로 단축할 수 있습니다. <br/>
+                    (웹/앱, 패키지, 제품 등 작업 시간이 긴 분야는 선택불가)</p>
+                    </div> 
+                </div>
+            </div>
+        <!-- //Period -->
+
+
+        <hr class="hr" />
+        <!-- Sub-option -->
+            <div class="sub-option" style="width:80%;">
+                <div class="section-left" style="width:100%;">
+                <h1>4.</h1>
+                <h4>추가 옵션 사항을 선택해주세요.</h4>
+                <p>공모전에 보다 많은 디자이너분들이 참여하실 수 있도록 다양한 옵션을 설정할 수 있습니다.<br/>
+                    각 옵션별 세부 내용을 확인한 후 원하시는 옵션을 선택해 주세요.
+                </p>
+                </div>
+            </div>
+        <!-- //Sub-option -->
+
+
+        <hr class="hr" />
+        <!-- Example option -->
+        <div class="example-section">
+          <div class="ex-left">
+          
+          </div>
+          <div class="ex-right">
+            
+          </div>
+          
+        </div>
+        <!-- //Example option -->
+
+
+        <hr class="hr" />
+            <div class="option-add">
+                <div class="option-left">
+                    <h4 style="text-align:left;"><b>노출옵션 선택</b></h4>
+                    <div class="options-contain">
+                        <div class="input-section">
+                            <input class="chk" type="checkbox" name="promotion" id="promotion" value="0"/>
+                            <label for="promotion"><p>Special프로모션(￦50,000)</p></label>
+                        </div>
+                        <div class="option-coment">
+                            <p>고객님의 콘테스트가 리스트 최상위에 위치하게 되어 <br/>다른 콘테스트보다 더욱 많이 노출됩니다.</p>
+                        </div>  
+                    </div>
+                    <div class="options-contain">
+                        <div class="input-section">
+                            <input class="chk" type="checkbox" name="highlight" id="highlight" value="50000"/>
+                            <label for="highlight"><p>하이라이트(￦50,000)</p></label>
+                        </div>
+                        <div class="option-coment">
+                            <p>콘테스트 목록에서 테두리가 하이라이트 되어 표시됩니다. 보다 많은 디자이너의 눈길을 사로잡을 수 있습니다.</p>
+                        </div>  
+                    </div>
+                    <div class="options-contain">
+                        <div class="input-section">
+                            <input class="chk" type="checkbox" name="secret" id="secret" value="50000"/>
+                            <label for="secret"><p>시크릿 콘테스트(￦100,000)</p></label>
+                        </div>
+                        <div class="option-coment">
+                            <p>공모전이 디자이너 회원에게만 노출되며 다른 의뢰자, 비회원 사용자에게는 노출되지 않습니다. 포트폴리오에서도 노출되지 않습니다. NDA옵션이 자동으로 포함됩니다..</p>
+                        </div>  
+                    </div>
+                    <div class="options-contain">
+                        <div class="input-section">
+                            <input class="chk" type="checkbox" name="NDA" id="NDA" value="50000"/>
+                            <label for="NDA"><p>비밀유지계약(NDA)(￦50,000)</p></label>
+                        </div>
+                        <div class="option-coment">
+                            <p>고객님이 작성하신 브리핑 내용을 열람하는 디자이너로부터 비밀유지계약 동의를 받습니다. 정보 노출이 꺼려지시는 분들은 <br/>선택해주세요.</p>
+                        </div>  
+                    </div>
+                    <div class="options-contain">
+                        <div class="input-section">
+                            <input class="chk" type="checkbox" name="topDesigner" id="topDesigner" value="0"/>
+                            <label for="topDesigner"><p>TOP디자이너 콘테스트(무료)</p></label>
+                        </div>
+                        <div class="option-coment">
+                            <p>라우드소싱에서 우승 경력이 있는 TOP 디자이너만 고객님의 콘테스트에 참여합니다. 보다 높은 퀄리티의 작품들만 받아보실 수 있지만 참여자 수는 줄어듭니다.</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="option-right">
+                    <h4 style="text-align:left;"><b>홍보옵션 선택</b></h4>
+                    <div class="options-contain">
+                        <div class="input-section">
+                            <input class="chk" type="checkbox" name="url" id="url" value="100000" disabled/>
+                            <label for="url"><p>독점 url사용(￦100,000)</p></label>
+                        </div>
+                        <div class="option-coment">
+                            <p>www.loud.kr/company 형식의 독점 url을 제공해 드립니다. 외부로 공모전을 홍보할 계획이라면 매우 유용한 기능입니다.</p>
+                        </div>   
+                    </div>
+                    <div class="options-contain">
+                        <div class="input-section">
+                            <input class="chk" type="checkbox" name="banner" id="banner" value="100000"/>
+                            <label for="banner"><p>홍보 배너 게재(￦100,000)</p></label>
+                        </div>
+                        <div class="option-coment">
+                            <p>콘테스트 리스트 상단에 공모전 홍보 배너를 게재하여 디자이너 참여도를 크게 높입니다.</p>
+                        </div>
+                    </div>
+                    <div class="options-contain">
+                        <div class="input-section">
+                            <input class="chk" type="checkbox" name="exAd" id="exAd" value="0"/>
+                            <label for="exAd"><p>트위터/외부 디자인 커뮤니티 홍보(무료)</p></label>
+                        </div>
+                        <div class="option-coment">
+                            <p>라우드소싱에서 외부 디자인 커뮤니티와 트위터에 고객님의 콘테스트를 홍보해드립니다.</p>
+                        </div>
+                    </div>
+                    <div class="options-contain">
+                        <div class="input-section">
+                            <input class="chk" type="checkbox" name="emailAd" id="emailAd" value="0"/>
+                            <label for="emailAd"><p>이메일 뉴스레터 홍보(무료)</p></label>
+                        </div>
+                        <div class="option-coment">
+                            <p>매주 금요일마다 사이트에 가입된 디자이너에게 발송되는 뉴스레터에 고객님의 콘테스트를 홍보해드립니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- total-section -->
+        <hr class="hr" />
+            <div class="total-section">
+                <div class="total-container">
+                    <div class="total-left">
+                        <p>Total</p>
+                    </div>
+                    <div class="total-right">
+                        <div class="right-container">
+                            <div class="bill-left">
+                                <ul>
+                                    <li><span><input type="text" value="" disabled/></span>총 상금</li>
+                                    <li><span><input type="text" value="" disabled/></span>공모전 등록비</li>
+                                    <li><span><input type="text" value="" disabled/></span>상금 수수료</li>
+                                    <li><span><input type="text" value="" disabled/></span>추가 옵션</li>
+                                    <li><span><input type="text" value="" disabled/></span>부가가치세</li>
+                                </ul>
+                            </div>
+                            <div class="bill-right">
+                                <ul>
+                                    <li><span><input type="text" class="totalPrize" value="1500000" disabled/></span>원</li>
+                                    <li><span><input type="text" class="registerFee" value="100000" disabled/></span>원</li>
+                                    <li><span><input type="text" class="prizeCommiton" value="0" disabled/></span>원</li>
+                                    <li><span><input type="text" class="addOptions" value="0" disabled/></span>원</li>
+                                    <li><span><input type="text" class="VAT" value="0" disabled/></span>원</li>
+                                </ul>
+                            </div>
+                            <hr class="hr3" />
+                            <div class="bill-bottom">
+                                    <p style="font-weight:bold">합계 <span><input type="text" class="totalFee" value="" disabled/></span>원</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- //total-section -->
+        </form>
+        <!-- payment-section-->
+         <hr class="hr" />
+          <div class="payment-section">
+            <div class="payment-container">
+              <div class="payment-left">
+              
+              </div>
+              <div class="payment-right">
+                  <div class="next-btn"><input class="next-buttons" type="submit" class="next" value="NEXT"/></div>
+              </div>
+            </div>
+          </div>
+        <!-- payment-section-->
+        </div>
+    </div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#award-sub').on('change', function () {
+          var isChecked = $(this).prop('checked');
+
+          if(isChecked){
+            $('.subAward').addClass('subAwardShow');
+          }else{
+            $('.subAward').removeClass('subAwardShow');
+          }
+        });
+      });
+
+    $(document).ready(function () {
+        $('div.calculator').css('position', 'absolute');
+        $(window).scroll(function() {
+            var sclTop = $(this).scrollTop();
+            if (sclTop > 10)
+            {
+                $('div.calculator').css('position', 'fixed').css('bottom', '100px');        
+            }
+            else 
+            {$('div.calculator').css('position','absolute').css('bottom','100px');}
+        });
+    });
+
+    $(document).ready(function(){
+        $('.award1-btn').on('click', function(){
+            // alert("click!"); ok
+            var award1 = $('.awardForm1').val();
+            if (award1 >= 900000 && award1 < 1500000 ){
+                alert("고급형을 이용해주세요!");
+                window.location.href = "/launch/new/logo/brief/options/gold/"+ <%=contest.id%>;   
+            } else if(award1 >= 1500000 ){
+                alert("프리미엄을 이용해주세요!");
+                window.location.href = "/launch/new/logo/brief/options/silver/"+ <%=contest.id%>;
+            } else if(award1 >= 300000 && award1 < 600000){
+                alert("저가형을 이용해주세요!");
+                window.location.href = "/launch/new/logo/brief/options/bronze/"+ <%=contest.id%>;
+            } else if(confirm("상금을 " +award1 + "원으로 하시겠습니까?")){
+                var award1 = $('.awardForm1').val();
+            } else {
+                $('.awardForm2').val(0);
+            }
+            
+            if(award1 < 300000){
+                alert("최소 상금 금액은 30만원입니다.")
+                window.location.href = "/launch/new/logo/brief/options/bronze/"+ <%=contest.id%>;
+            };
+        });
+        
+        $('.award2-btn').on('click', function(){
+            // alert("click!"); ok
+            var award2 = $('.awardForm2').val();
+            if(award2>0 &&award2<200000){
+                alert("최소상금은 200,000만원입니다.");
+                $('.awardForm2').val(0);  
+            } else if(confirm("상금을 " +award2+"원으로 하시겠습니까?")){
+                  var award2 = $('.awardForm2').val();
+            } else {
+                $('.awardForm2').val(0);
+            };
+        });
+
+        $('.award3-btn').on('click', function(){
+            // alert("click!"); ok
+            var award2 = $('.awardForm2').val();
+            var award3 = $('.awardForm3').val();
+            if(award2 == 0){
+                alert("2위의 상금을 정해주세요");
+                $('.awardForm3').val(0);
+            } else if(award3 >0 && award3<100000){
+                alert("최소상금은 100,000만원입니다.");
+                $('.awardForm3').val(0);
+            } else if(confirm("상금을 " +award3+"원으로 하시겠습니까?")){
+                  var award3 = $('.awardForm3').val();
+            } else {
+                $('.awardForm3').val(0);
+            };
+
+     
+        });
+         $('.chk').on('click', function (){
+            //--상금 관련
+            var award1 = $('.awardForm1').val();
+            var award2 = $('.awardForm2').val();
+            var award3 = $('.awardForm3').val();
+            // console.log( award1, award2, award3);
+
+            var totalPrize = parseInt(award1) + parseInt(award2) + parseInt(award3);
+            $('.totalPrize').val(parseInt(totalPrize));
+            // console.log("totalPrize :" + totalPrize);
+            //--체크박스 관련
+            if($('input[name="commition"]').is(":checked")){
+                var commition = totalPrize * 20/100;
+                $('#commition').val(commition);
+            } else {
+                var commition = 0;
+                $('#commition').val(commition);
+            };
+            //--기간 관련
+            if($('input[id="period2"]').is(":checked")){
+                var period2 = 100000;
+            }else{
+                var period2 = 0;
+            };
+            if($('input[id="period3"]').is(":checked")){
+                var period3 = 100000;
+            }else{
+                var period3 = 0;
+            };
+            if($('input[id="promotion"]').is(":checked")){               
+                var promotion = 50000;
+                $('#promotion').val(promotion);
+            }else{
+                var promotion = 0;
+                $('#promotion').val(promotion);
+            };
+            if($('input[id="highlight"]').is(":checked")){               
+                var highlight = 50000;
+            }else{
+                var highlight = 0;
+            };
+            if($('input[id="secret"]').is(":checked")){               
+                var secret = 100000;
+            }else{
+                var secret = 0;
+            };
+            if($('input[id="NDA"]').is(":checked")){               
+                var NDA = 50000;
+            }else{
+                var NDA = 0;
+            };
+            if($('input[id="banner"]').is(":checked")){               
+                var banner = 100000;
+            }else{
+                var banner = 0;
+            };
+
+            //무료인것 컨트롤 
+
+            if($('input[id="topDesigner"]').is(":checked")){               
+                var topDesigner = 0;
+                $('#topDesigner').val(topDesigner);
+            }else{
+                var topDesigner = -1;
+                $('#topDesigner').val(topDesigner);
+            };
+            if($('input[id="exAd"]').is(":checked")){               
+                var exAd = 0;
+                $('#exAd').val(exAd);
+            } else {
+                var exAd = -1;
+                $('#exAd').val(exAd);
+            };
+            if($('input[id="emailAd"]').is(":checked")){               
+                var emailAd = 0;
+                $('#emailAd').val(emailAd);
+            } else {
+                var emailAd = -1;
+                $('#emailAd').val(emailAd);
+            };
+
+            //--adOption
+            var addOptions = parseInt(period2) + parseInt(period3)
+            +parseInt(promotion)+parseInt(highlight)+parseInt(secret)+parseInt(NDA)+parseInt(banner);
+            
+            $('.addOptions').val(addOptions);
+
+            //--total
+            var registerFee = $('.registerFee').val();
+
+            var totalFee = parseInt(totalPrize) 
+            + parseInt(registerFee) + parseInt(commition) + parseInt(addOptions);
+            
+            //-- VAT
+            var vat = totalFee * 10/100;
+            $('.VAT').val(vat);
+
+            var vatTotal = parseInt(totalFee) + parseInt(vat); 
+            $('.totalFee').val(totalFee);
+            $('.prizeCommiton').val(commition);
+
+
+        });
+    });
+
+
+//처음 로딩 되었을때, 
+    $(document).ready(function(){
+        var award1 = $('.awardForm1').val();
+        var award2 = $('.awardForm2').val();
+        var award3 = $('.awardForm3').val();
+        var totalPrize = parseInt(award1) + parseInt(award2) + parseInt(award3);
+
+        $('.totalPrize').val(totalPrize);
+
+        var registerFee = $('.registerFee').val();
+
+        var totalFee = parseInt(totalPrize) + parseInt(registerFee)
+        
+
+        var vat = totalFee * 10/100 
+        $('.VAT').val(vat);
+
+        var vatTotal = parseInt(totalFee) + parseInt(vat);
+         $('.totalFee').val(vatTotal);
+    });
+
+    </script>
+</body>
+
+</html>

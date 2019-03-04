@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <!-- owlCarousel -->
+  <link rel="stylesheet" href="/stylesheets/owl/owl.carousel.min.css">
+  <link rel="stylesheet" href="/stylesheets/owl/owl.theme.default.min.css">
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/contestView/wish.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+
+
+    <!-- head-section -->
+    <div class="first-section">
+      <div class="wrap-box">
+        <h3><b>콘테스트 보기</b></h3>
+        <div class="link-btn">
+          <div class="list-btn">
+            <a href="/contest/list" style="color:white; ">진행중인 콘테스트</a>
+          </div>
+          <div class="audit-btn">
+            <a href="/contest/list/audit" style="color:white;">심사중인 콘테스트</a>
+          </div>
+          <div class="end-btn">
+            <a href="/contest/list/end" style="color:white;">종료된 콘테스트</a>
+          </div>
+          <% if(users) {%>
+            <div class="wish-btn">
+              <a href="/contest/list/wish" style="color:#404040;">관심 콘테스트</a>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- //head-section -->
+
+    <!-- second-section -->
+    <div class="second-section">
+      <div class="wrap-box2">
+        <div class="option-section">
+          <select class="category-option">
+            <option value="all">전체 카테고리보기()</option>
+            <option value="logo">로고 디자인()</option>
+            <option value="goodsPackage">제품 패키지 디자인()</option>
+            <option value="editDesign">편집 디자인()</option>
+            <option value="web/app">웹/앱 디자인()</option>
+          </select>
+          <select class="type-option">
+            <option value="all">전체 업종보기()</option>
+            <option value="logo">식당/카페()</option>
+            <option value="goodsPackage">식품/건강()</option>
+            <option value="editDesign">IT/미디어()</option>
+            <option value="web/app">뷰티/패션()</option>
+            <option value="web/app">병원()</option>
+            <option value="web/app">애완동물()</option>
+            <option value="web/app">교육/육아()</option>
+            <option value="web/app">재능기부/공공기관()</option>
+            <option value="web/app">일반/기타()</option>
+          </select>
+          <select class="sort-option">
+            <option value="all">기본 정렬()</option>
+            <option value="logo">마감임박 순 정렬()</option>
+            <option value="goodsPackage">최신등록 순 정렬()</option>
+            <option value="editDesign">참여자 순 정렬()</option>
+            <option value="web/app">총상금 순 정렬()</option>
+            <option value="web/app">조회 순 정렬()</option>
+          </select>
+          <div class="serch-section">
+            <input type="text" class="searchForm" placeholder="콘테스트 검색"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></input>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //second-section -->
+
+    <!-- third-section -->
+    <div class="third-section">
+      <div class="wrap-box3">
+        <div class="contest-board1">
+          <h5 style="text-align:center; margin-top:15px"><img src="/images/contestView/pimg.png"/>우승 확률이 높은 콘테스트</h5>
+          <hr/>
+          <ul>
+            <li>1.</li>
+            <li>2.</li>
+            <li>3.</li>
+            <li>4.</li>
+            <li>5.</li>
+          </ul>
+        </div>
+        <div class="contest-board2">
+          <h5 style="text-align:center; margin-top:15px"><img src="/images/contestView/mimg.png"/>최대 상금 콘테스트</h5>
+          <hr/>
+          <ul>
+            <li>1.</li>
+            <li>2.</li>
+            <li>3.</li>
+            <li>4.</li>
+            <li>5.</li>
+          </ul>
+        </div>
+        <div class="contest-board3">
+          <h5 style="text-align:center; margin-top:15px"><img src="/images/contestView/nimg.png"/>최신 등록 콘테스트</h5>
+          <hr/>
+          <ul>
+            <li>1.</li>
+            <li>2.</li>
+            <li>3.</li>
+            <li>4.</li>
+            <li>5.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- third-section -->
+
+    <!-- forth-section -->
+    <div class="forth-section">
+      <div class="wrap-box4">
+        <div class="owl-carousel">
+          <div class="item"><img src="/images/owl/item1.jpg"/></div>
+          <div class="item"><img src="/images/owl/item2.jpg"/></div>
+          <div class="item"><img src="/images/owl/item3.jpg"/></div>
+          <div class="item"><img src="/images/owl/item4.jpg"/></div>
+          <div class="item"><img src="/images/owl/item5.jpg"/></div>
+          <div class="item"><img src="/images/owl/item7.jpg"/></div>
+          <div class="item"><img src="/images/owl/item8.jpg"/></div>
+        </div>
+      </div>
+    </div>
+    <!-- //forth-section -->  
+
+    <!-- fifth-section -->
+    <div class="fifth-section">
+      <div class="wrap-box5">
+        <ul>
+          <li>
+            <div class="board-container">
+            
+            </div>
+          </li>
+        </ul>
+      </div>  
+    </div>
+    <!-- //fifth-section -->
+</div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"></script>
+    <script src="/javascripts/owl.carousel.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $(".owl-carousel").owlCarousel({
+            items:4,
+            loop:true,
+            margin:2,
+            autoplay:true,
+            autoplayTimeout:2000,
+            autoplayHoverPause:true,
+          });
+        });
+    </script>
+</body>
+
+</html>

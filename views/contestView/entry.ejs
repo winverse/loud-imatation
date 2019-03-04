@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/contestView/entry.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+    <form action="" method="post">
+    <input type="text" class="partiId" name="partiId" value="<%=parti.id%>" hidden/>
+    <input type="text" class="userName" value="<%=users.name%>"hidden />
+    <input type="text" class="contestClient" value="<%=contest.author%>" hidden/>
+    
+    <div class="main-container">
+      <div class="left-section">
+        <div class="box1">
+        <img src=""/>
+          <div class="user">
+            <p><b>Desgin by</b></p>
+            <p style="font-size:17px; color:red;"><b><%=parti.author%></b></p>
+          </div>
+        </div>
+        <hr/>
+          <div class="box2">
+              <% if (parti.rated == null || parti.rated == 0){ %>
+                <div><span>별점평가 : <div class="starrr"></div></span></div>
+                  <span class='your-choice-was' >
+                <br/><input type="text" name="rated" class='choice' value="0" hidden/></span>
+              <%} else {%>
+                <div><span>별점평가 : <div class="starrr" ></div></span></div>
+                  <span class='your-choice-was' style='display: none;'>
+                <br/><input type="text" name="rated" class='choice' value="<%=parti.rated%>"/></span>
+              <%}%>
+
+              <% if(contest.firstWin != parti.id && contest.secondWin != parti.id && contest.thirdWin != parti.id){%>
+                <p class="noRound"></p>
+              <%}%>
+
+
+
+              <%if(contest.author == users.name){%>
+                <%if(contest.passing.length == 0){%>
+                  <div class="select-section">
+                    <input type="button" class="passing" value="1차 작품선정"/>
+                  </div>
+                <%};%>
+
+                <%if(contest.passing.length == 1){%>
+                  <%if(contest.passing[0] == parti.id){%>
+                    <div class="select-section">
+                      <input type="button" class="passing" value="1차 작품으로 선정되었습니다." disabled/>
+                    </div>
+                  <%}else{%>
+                    <div class="select-section">
+                      <input type="button" class="passing" value="1차 작품선정"/>
+                    </div>
+                  <%}%>
+                <%}%>  
+
+                  <%if(contest.passing.length == 2){%>
+                    <%if(contest.passing[0] == parti.id || contest.passing[1] == parti.id){%>
+                      <div class="select-section">
+                        <input type="button" class="passing" value="1차 작품으로 선정되었습니다." disabled/>
+                      </div>
+                    <%}else{%>
+                      <div class="select-section">
+                        <input type="button" class="passing" value="1차 작품선정"/>
+                      </div>
+                    <%}%>
+                  <%}%>
+
+                <%if(contest.passing.length == 3){%>
+
+                  <%if(contest.passing[0] == parti.id || contest.passing[1] == parti.id || contest.passing[2] == parti.id){%>
+                        <%if(contest.award1 != null && contest.firstWin == null){%>
+                          <div class="select-section">
+                            <input type="button" class="select1" value="1위 선정하기"/>
+                          </div>
+                        <%}%>
+                        <%if(contest.firstWin == parti.id && contest.firstWin != null ){%>
+                          <div class="select-section">
+                            <input type="button" value="1위로 선정되었습니다." disabled/>
+                          </div>
+                        <%};%>
+
+                        <%if(contest.award2 != 0 && contest.firstWin != parti.id && contest.secondWin == null && contest.firstWin != null ){%>
+                          <div class="select-section">
+                            <input type="button" class="select2" value="2위 선정하기"/>
+                          </div>
+                        <%}%>
+
+                        <%if(contest.secondWin == parti.id && contest.secondWin != null ){%>
+                          <div class="select-section">
+                            <input type="button" value="2위로 선정되었습니다." disabled/>
+                          </div>
+                        <%};%>
+
+
+                          <%if(contest.award3 != 0 && contest.firstWin != parti.id && contest.secondWin != null && contest.secondWin != parti.id && contest.thirdWin == null){%>
+                            <div class="select-section">
+                              <input type="button" class="select3" value="3위 선정하기"/>
+                            </div>
+                            
+                            <%if(contest.thirdWin == parti.id){%>
+                              <div class="select-section">
+                                <input type="button" value="3위로 선정되었습니다." disabled/>
+                              </div>  
+                            <%};%>
+                          <%}%>
+
+                          <%if(contest.thirdWin == parti.id){%>
+                            <div class="select-section">
+                              <input type="button" value="3위로 선정되었습니다." disabled/>
+                            </div>
+                          <%};%>  
+                        <%}%>  
+                      <%}%>
+                    <%}%>
+              </div>
+          <hr/>
+        
+        <div class="box3">
+          <p>작품 설명</p>
+          <div class="des">
+          <%=parti.partDescription%>
+          </div>
+        </div>
+        <hr/>
+      </div>
+      <div class="right-section">
+        <img id="image1" src="/uploads/<%=parti.thumnailImage%>" onload="javascript:myInfo(this);"/>
+        <img id="image2" src="/uploads/<%=parti.detailImage%>" onload="javascript:myInfo2(this);"/>
+      </div>
+    </div>
+    <input type="submit" hidden/>
+  </form>
+</div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"></script>
+    <script src="/javascripts/starrr.js"></script>
+
+
+
+    
+    <script>
+    
+      function myInfo(obj){
+        var W = obj.naturalWidth;
+        var H = obj.naturalHeight;
+
+        var element = document.getElementById('image1');
+        if( W > 800){
+  
+          $('#image1').addClass('limit');
+        } else {
+          element.setAttribute('width', W);
+          element.setAttribute('height', H);
+        };
+        
+      };
+      function myInfo2(obj){
+        var W = obj.naturalWidth;
+        var H = obj.naturalHeight;
+
+        var element = document.getElementById('image2');
+        element.setAttribute('width', W);
+        element.setAttribute('height', H);
+      };
+
+      (function(){
+        $(document).ready(function(){
+          $('.starrr:eq(0)').on('starrr:change', function(e, value){
+            var client = $('.contestClient').val();
+            var user = $('.userName').val();
+
+            if(String(client) == String(user)){
+            if(confirm("별" +value+"개를 주시겠습니까?") == true && String(client) == String(user)){
+              $('.choice').val(value);
+              var id = $('.partiId').val();
+                if(value){
+                  $.ajax({
+                  url: '/contest/entry/rate_ajax/'+id,
+                  data: {value : value},
+                  type: 'POST',
+                  success: function (response){
+                    console.log("response: " + response.message);
+                    if(response.message == "평가 되었습니다.")
+                    alert("평가가 완료되었습니다.");
+                  },
+                  error: function (request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                  }
+                  })
+                } else {
+                  alert("다시 선택해주세요.");
+                  return false;
+                }
+                return false;
+              } else {
+                // alert("다시 선택해주세요.");
+                return false;
+              }
+            }else {
+              alert("허용되지 않은 접근입니다.");
+              return false;
+            }
+          });
+        });
+      })();
+
+      (function(){
+        var rated = $('.choice').val();
+          $('.starrr').starrr({
+            rating:rated
+      })
+      })();
+
+    (function(){
+      $(document).ready(function(){
+        $('.select1').on('click', function(){
+          var partiVal = $('.partiId').val();
+          $('.firstWin').val(partiVal);
+        });
+         $('.select2').on('click', function(){
+          var partiVal = $('.partiId').val();
+          $('.secondWin').val(partiVal);
+        });
+         $('.select3').on('click', function(){
+          var partiVal = $('.partiId').val();
+          $('.thirdWin').val(partiVal);
+        });
+      });
+    })();
+
+    (function(){
+      $(document).ready(function(){
+        $('.passing').on('click', function(){
+          let partId = $('.partiId').val();
+          let conf = confirm("1차 선정하시면 취소하실 수 없습니다.\n\n이 작품을 1차 선정 하시겠습니까?")
+          if(conf == true){
+            if(partId){
+              $.ajax({
+                url: '/contest/entry/passing_ajax/'+partId,
+                data : {partId : partId},
+                type : 'POST',
+                success: function(response){
+                    if(response.message == "success"){
+                      alert("1차 작품에 선정되었습니다.");
+                      setTimeout(
+                        function() 
+                        {
+                          location.reload();
+                        }, 0001);    
+                      }
+                  },
+                  error: function (request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                  }
+              })
+            } else {  
+              alert("오류가 발생했습니다.");
+            }
+          } else {
+            alert("다시 선정해주세요");
+            return false;
+          }
+        });
+      });
+    })();
+
+    
+
+    (function(){
+      $(document).ready(function(){
+        $('.select1').on('click', function(){
+          let partId = $('.partiId').val();
+          let conf = confirm("1위를 선정하시면 취소할 수 없습니다. \n\n1위로 선정하시겠습니까?")
+          if(conf == true){
+            if(partId){
+              $.ajax({
+                url: '/contest/entry/select1_ajax/'+partId,
+                data : {partId : partId},
+                type : 'POST',
+                success : function(response){
+                  if(response.message == "success"){
+                    alert("1위에 선정되었습니다!");
+                    setTimeout(
+                      function() 
+                      {
+                        location.reload();
+                      }, 0001); 
+                  }
+                },
+                error: function (request, status, error) {
+                      alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                    }
+              }) //ajax
+            } else {
+              alert("오류가 발생했습니다.");
+            }
+          }else{
+            alert("다시 선정해주세요");
+            return false;
+          }
+        });
+      });
+    })();
+
+    (function(){
+      $(document).ready(function(){
+        $('.select2').on('click', function(){
+          let partId = $('.partiId').val();
+          let conf = confirm("2위를 선정하시면 취소할 수 없습니다. \n\n2위로 선정하시겠습니까?")
+          if(conf == true){
+            if(partId){
+              $.ajax({
+                url: '/contest/entry/select2_ajax/'+partId,
+                data : {partId : partId},
+                type : 'POST',
+                success : function(response){
+                  if(response.message == "success"){
+                    alert("2위가 선정되었습니다!");
+                    setTimeout(
+                      function() 
+                      {
+                        location.reload();
+                      }, 0001); 
+                  }
+                },
+                error: function (request, status, error) {
+                      alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                    }
+              }) //ajax
+            } else {
+              alert("오류가 발생했습니다.");
+            }
+          }else{
+            alert("다시 2위를 선정해주세요");
+            return false;
+          }
+        });
+      });
+    })();
+
+
+    (function(){
+      $(document).ready(function(){
+        $('.select3').on('click', function(){
+          let partId = $('.partiId').val();
+          let conf = confirm("3위를 선정하시면 취소할 수 없습니다. \n\n1위로 선정하시겠습니까?")
+          if(conf == true){
+            if(partId){
+              $.ajax({
+                url: '/contest/entry/select3_ajax/'+partId,
+                data : {partId : partId},
+                type : 'POST',
+                success : function(response){
+                  if(response.message == "success"){
+                    alert("3위가 선정되었습니다!");
+                    setTimeout(
+                      function() 
+                      {
+                        location.reload();
+                      }, 0001); 
+                  }
+                },
+                error: function (request, status, error) {
+                      alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                    }
+              }) //ajax
+            } else {
+              alert("오류가 발생했습니다.");
+            }
+          }else{
+            alert("다시 3위를 선정해주세요");
+            return false;
+          }
+        });
+      });
+    })();
+          
+    </script>
+</body>
+
+</html>

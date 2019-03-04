@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/contestView/viewBrief.css">
+    <link rel="stylesheet" href="/stylesheets/slider.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+    <!-- all-wrap -->
+    <div id="all-wrap">
+      <div class="container">
+        <ul>
+          <li class="list-box">
+            <div class="board-container">
+              <div class="board1">
+                <div class="img-section">
+                  <img src="/images/contestView/thumbimg_logo.png"/>
+                </div>
+                <div class="list">
+                  <div class="list-top">
+                    <span><%=contest.contestType%></span> &nbsp;|&nbsp; <span><b><%=contest.title%></b></span>
+                  </div>
+                  <div class="list-bottom">
+                   <span><%=contest.name%></span>&nbsp;|&nbsp;<span><%=contest.company%></span>&nbsp&nbsp&nbsp<span class="click-section"><b>조회수</b> : 명 </span>
+                  </div>
+                  <hr class="hr1"/>
+                </div>
+              </div>
+              <div class="board2">
+                <p class="ellipsis"><%=contest.serviceDescription%></p>
+              </div>
+              <div class="board3">
+                <div class="board3-floor1">
+                <p>
+                  <%if(contest.award1 && contest.award1 != 0 ){%> 
+                    <span>1등 :<%=contest.award1%> 원</span>&nbsp;
+                  <%}%>
+                  <%if(contest.award2 && contest.award2 != 0){%> 
+                    <span>2등 : <%=contest.award2%>원</span>&nbsp;
+                  <%}%>
+                  <%if(contest.award3 && contest.award3 != 0){%> 
+                    <p><span>3등 :<%=contest.award3%> 원</span></p>
+                  <%}%>
+                </p>  
+                </div>
+                <div class="board3-floor2">
+                  <p>남은기간: </p>
+                </div>
+                <div class="board3-floor3">
+                <p> 참여자: 명</p>
+                </div>
+                <div class="board3-floor4">
+                  관심리스트 추가
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <!-- second-section -->
+        <div class="second-section">
+          <div class="btn-section">
+              <a href="/contest/view/<%=contest.id%>" class="btn-1">참여작 보기</a>
+              <a href="/contest/view/brief/<%=contest.id%>" class="btn-2">브리핑 보기</a>
+              <% if(users.name == contest.author){%>
+                <a href="/contest/transfer/<%=contest.id%>" class="btn-3">우승작 전송</a>
+              <%} else {%>
+                <a href="/contest/view/join/<%=contest.id%>" class="btn-3">콘테스트 참여</a>
+              <%}%>
+          </div>
+        </div>
+      <!-- second-section -->
+
+        <% if(contest.NDA){ %>
+
+
+        <%} else {%>
+
+
+        <%}%>
+
+
+        <!-- brif-contain -->
+        <div class="brief-contain">
+
+
+            <!--third-section -->
+            <div class="third-section">
+
+                <!-- in-container1 -->
+                <h4 ><b>콘테스트 브리핑 자세히 보기</b></h4>
+                <div class="in-container1">
+                    <div class="first-left title-des"><b>>제목</b></div><div class="first-right"><%=contest.title%></div>
+                    <div class="first-left company-des"><b>>회사명</b></div><div class="first-right"><%=contest.company%></div>
+                    <div class="first-left service-des"><b>>서비스 설명</b></div><div class="first-right"><%=contest.serviceDescription%></div>
+                </div>
+                <!-- //in-container1 -->
+
+
+                <!-- in-container2 -->
+                <h4><b>제작하시려는 로고스타일을 골라주세요</b></h4>
+                <div class="in-container2">
+                  <ul class="logo-section">
+                    <% if(contest.logoStyle){%>
+                      <% contest.logoStyle.forEach(function(logoStyle){ %>
+                          <%if(logoStyle == 'logoStyle1'){%>
+                            <li>
+                              <img src="/images/logo/1.jpg" alt=""/>
+                              <div class="logo-subsection">
+                              <input class="chk" type="checkbox" name="picture" value="picture1" checked disabled/>
+                              <label for="data1" name="data1">텍스트로고</label>
+                              </div>
+                            </li>
+                          <%}%>
+                          <% if(logoStyle == 'logoStyle2'){ %>
+                            <li>
+                              <img src="/images/logo/2.jpg" alt=""/>
+                              <div class="logo-subsection">
+                              <input class="chk" type="checkbox" name="picture" value="picture2" checked disabled />
+                              <label for="data2" name="data2">그림로고</label>
+                              </div>
+                            </li>
+                          <%} %>  
+                          <% if(logoStyle == 'logoStyle3'){ %>
+                            <li>
+                              <img src="/images/logo/3.jpg" alt=""/>
+                              <div class="logo-subsection">
+                              <input class="chk" type="checkbox" name="picture" value="picture3"checked disabled/>
+                              <label for="data3" name="data3">심볼로고</label> 
+                              </div>
+                            </li>
+                          <%} %>  
+                          <% if(logoStyle == 'logoStyle4'){ %>  
+                            <li>
+                              <img src="/images/logo/4.jpg" alt=""/>
+                              <div class="logo-subsection">
+                              <input class="chk" type="checkbox" name="picture" value="picture4" checked disabled/>
+                              <label for="data4" name="data4">글자로고</label>
+                              </div>
+                            </li>
+                          <%} %>  
+                          <% if(logoStyle == 'logoStyle5'){ %>  
+                            <li>
+                              <img src="/images/logo/5.jpg" alt=""/>
+                              <div class="logo-subsection">
+                              <input class="chk" type="checkbox" name="picture" value="picture5" checked disabled/>
+                              <label for="data5" name="data5">엠블럼로고</label>
+                              </div>
+                            </li>
+                          <%} %>  
+                          <% if(logoStyle == 'logoStyle6'){ %>  
+                            <li>
+                              <img src="/images/logo/6.jpg" alt=""/>
+                              <div class="logo-subsection">
+                              <input class="chk" type="checkbox" name="picture" value="picture6" checked disabled/>
+                              <label for="data6" name="data6">캐릭터로고</label>
+                              </div>
+                            </li>
+                          <%} %>
+                          <% if(logoStyle == 'logoStyle7'){ %>  
+                            <li>
+                              <img src="/images/logo/7.jpg" alt=""/>
+                              <div class="logo-subsection">
+                              <input class="chk" type="checkbox" name="picture" value="picture7" checked disabled/>
+                              <label for="data7" name="data7">web2.0스타일로고</label>
+                              </div>
+                            </li>
+                          <%} %>  
+                          <% if(logoStyle == 'logoStyle8'){ %>  
+                            <li>
+                              <img src="/images/logo/8.jpg" alt=""/>
+                              <div class="logo-subsection">
+                              <input class="chk" type="checkbox" name="picture" value="picture8" checked disabled/> 
+                              <label for="data8" name="data8">켈라그라피 스타일 로고</label>
+                              </div>
+                            </li>
+                          <%}%>                         
+                        <%})%>
+                      <%}%>
+                    </ul>
+                </div>
+                <!-- //in-container2 -->
+
+
+                <!-- in-container3 -->
+                <h4><b>선호하는 디자인 스타일 선택항목 입니다.</b></h4>
+                <div class="in-container3">
+                  <ul>
+                    <% if(contest.imageRank){%>
+                      <% contest.imageRank.forEach(function(image){ %>
+                        <% if(image == 'picture1'){ %>
+                          <li>
+                            <img class="check-icon" src="/images/logo/logod/1.jpg"/>
+                          </li>
+                        <%}%>
+                        <% if(image == 'picture2'){ %>
+                          <li>
+                            <img class="check-icon" src="/images/logo/logod/2.jpg"/>
+                          </li>
+                        <%}%>
+                        <% if(image == 'picture3'){ %>
+                          <li>
+                            <img class="check-icon" src="/images/logo/logod/3.jpg"/>
+                          </li>
+                        <%}%>
+                        <% if(image == 'picture4'){ %>
+                          <li>
+                            <img class="check-icon" src="/images/logo/logod/4.jpg"/>
+                          </li>
+                        <%}%>
+                        <% if(image == 'picture5'){ %>
+                          <li>
+                            <img class="check-icon" src="/images/logo/logod/5.jpg" />
+                          </li>
+                        <%}%>
+                        <% if(image == 'picture6'){ %>
+                          <li>
+                            <img class="check-icon" src="/images/logo/logod/6.jpg" />
+                          </li>
+                        <%}%>
+                        <% if(image == 'picture7'){ %>
+                          <li>
+                            <img class="check-icon" src="/images/logo/logod/7.jpg" />
+                          </li>
+                        <%}%>
+                        <% if(image == 'picture8'){ %>
+                          <li>
+                            <img class="check-icon" src="/images/logo/logod/8.jpg" />
+                          </li>
+                        <%}%>
+                        <% if(image == 'picture9'){ %>
+                          <li>
+                            <img class="check-icon" src="/images/logo/logod/9.jpg" />
+                          </li>
+                        <%}%>
+                      <%})%>
+                    <%}%>
+                  </ul>
+                </div>
+
+                <!-- //in-container3 -->
+                
+                <!-- in-container4 -->
+                <h4><b>로고의 성격을 말해주세요</b></h4>
+                <div class="in-container4">                  
+                  <table class="range-table">                   
+                    <tbody>
+                      <tr>                        
+                      </tr>
+                      <tr>
+                        <td>여성스러운</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range1" data-orientation="horizontal" type="range" min="0" max="1000" value="<%=contest.range[0]%>" disabled/></span></td>
+                        <td>남성스러운</td>
+                      </tr>
+                      <tr>
+                        <td>젊은</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range2" data-orientation="horizontal" type="range" min="0" max="1000" value="<%=contest.range[1]%>" disabled/></span></td>
+                        <td>성숙한</td>
+                      </tr>
+                      <tr>
+                        <td>럭셔리한</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range3" data-orientation="horizontal" type="range" min="0" max="1000" value="<%=contest.range[2]%>" disabled/></span></td>
+                        <td>대중적인</td>
+                      </tr>
+                      <tr>
+                        <td>모던한</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range4" data-orientation="horizontal" type="range" min="0" max="1000" value="<%=contest.range[3]%>" disabled/></span></td>
+                        <td>클래식한</td>
+                      </tr>
+                      <tr>
+                        <td>재미있는</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range5" data-orientation="horizontal" type="range" min="0" max="1000" value="<%=contest.range[4]%>" disabled/></span></td>
+                        <td>진지한</td>
+                      </tr>
+                      <tr>
+                        <td>시끄러운</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range6" data-orientation="horizontal" type="range" min="0" max="1000" value="<%=contest.range[5]%>" disabled/></span></td>
+                        <td>조용한</td>
+                      </tr>
+                      <tr>
+                        <td>단순한</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range7" data-orientation="horizontal" type="range" min="0" max="1000" value="<%=contest.range[6]%>" disabled/></span></td>
+                        <td>복잡한</td>
+                      </tr>
+                      <tr>
+                        <td>모호한</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range8" data-orientation="horizontal" type="range" min="0" max="1000" value="<%=contest.range[7]%>" disabled/></span></td>
+                        <td>정확한</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- //in-container4 -->
+                
+                <!-- in-container5 -->
+                <h4><b>어떤 색상을 원하세요?</b></h4>
+                <div class="in-container5">
+                  <p><%=contest.color%></p>
+                </div>
+                <!-- //in-container5 -->
+
+                <!-- in-container6 -->
+                <h4><b>로고는 어디에 사용하실 계획인가요?</b></h4>
+                <div class="in-container6">
+                  <div class="purpose-section">
+                    <%if(contest.purpose){%>
+                      <% if(contest.purpose[0] == 'print'){ %>
+                        <div><input type="checkbox" checked disabled>프린트물 (명함,편지지,브로셔 등)</input></div>
+                      <% } else { %>
+                        <div><input type="checkbox" disabled>프린트물(명함,편지지,브로셔 등)</input></div>
+                      <% } %>
+
+                      <% if(contest.purpose[1] == 'internet'){ %>
+                        <div><input type="checkbox" checked disabled>인터넷(웹사이트, 인터넷 광고, 배너 등)</input></div>
+                      <% } else { %>
+                        <div><input type="checkbox" disabled>인터넷(웹사이트, 인터넷 광고, 배너 등)</input></div>
+                      <% } %>
+
+                      <% if(contest.purpose[2] == 'goods'){ %>
+                        <div><input type="checkbox" checked disabled>상품(컵, 티셔츠 등)</input></div>
+                      <% } else { %>
+                        <div><input type="checkbox" disabled>상품(컵, 티셔츠 등)</input></div>
+                      <% } %>
+
+                      <% if(contest.purpose[3] == 'title'){ %>
+                        <div><input type="checkbox" checked disabled>간판(광고판, 게시판 등)</input></div>
+                      <% } else { %>
+                        <div><input type="checkbox" disabled>간판(광고판, 게시판 등)</input></div>
+                      <% } %>
+
+                      <% if(contest.purpose[4] == 'screen'){ %>
+                        <div><input type="checkbox" checked disabled>Tv / 스크린</input></div>
+                      <% } else { %>
+                        <div><input type="checkbox" disabled>Tv / 스크린</input></div>
+                      <% } %>
+                    <%}%>
+                  </div>
+                </div>
+                <!-- //in-container6 -->
+
+
+                <!-- in-container7 -->
+                <h4><b>디자이너들이 참고할 자료가 있으신가요?</b></h4>
+                <div class="in-container7">
+                <ul>
+                  <li><b>참고 파일</b></li>
+                  <% if(data){ %>
+                    <% data.forEach(function(datas, i){ %>
+                      <li><%=datas.orgFileName%> <input hidden type="text" style="width:300px;"class="filePath<%=[i]%>" value="<%=datas.saveFileName%>"/><input type="button" value="저장" onclick="downloadFiles(<%=[i]%>);"/></li>
+                                                                           
+                    <%});%>
+                  <% } else { %>
+                      <li></li>
+                  <%}%>
+                </ul>
+                </div>
+                <!-- //in-container7 -->
+
+                <!-- in-container8 -->
+                <h4><b>디자인 브리핑 상세내용</b></h4>
+                <div class="in-container8">
+                  <%=contest.designDescription%>
+                </div>
+                <!-- //in-container8 -->
+
+                
+            </div>
+            <!--//third-section -->
+
+        </div>
+        <!--//brif-contain -->
+
+
+      </div>
+      <!-- //container-->
+    </div>
+  <!-- //all-wrap -->
+</div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"></script>
+    <script>
+
+          function downloadFiles(i) {
+            var k = i
+            alert(k);
+            var filepath = $('.filePath'+k+'').val();
+            var path = filepath;
+            if(confirm("파일이 다운로드 됩니다.") == true) {
+                location.href = "/contest/view/brief/download/" + path;
+            }
+          }
+
+    </script>
+</body>
+
+</html>

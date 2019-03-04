@@ -1,0 +1,95 @@
+.main-contain {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width : 70%;
+    margin : 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #F8F8F8;
+}
+
+.main-word{
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top : 30px;
+    padding-bottom : 40px;
+    font-weight: 900;
+}
+
+.contain-left1{
+    width : 45%;
+
+}
+
+.contain-right1{
+    width : 45%;
+}   
+.email-section{
+    margin-top: 20px;
+}
+.name-section{
+    margin-top: 20px;
+}
+.phone-section {
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 20px;
+}
+
+.phone-control{
+    width: 100%;
+}
+.phone-select{
+    width : 20%;
+}
+.phone-section-sub{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.hif{
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+}
+
+#cellPhone{font-size: 16px}
+
+.hr {
+    width:90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    height: 2px;
+    line-height: 0px;
+  }
+.content-bottom{
+    width : 90%;
+    margin: 0 auto;
+}
+  .next-box{
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+    background-color: #441A1A;
+    width: 10%;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .next{
+    font-size: 20px;
+    line-height: 40px;
+    margin: 0 auto;
+    color: #FFFBF2;
+    text-align: center;
+    text-decoration: none;
+  }
+  .next:hover{
+    color: white;
+    text-decoration:none !important
+  }
+  

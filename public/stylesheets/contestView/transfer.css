@@ -1,0 +1,660 @@
+#all-wrap {
+    width: 100%;
+    background-color: #f0f1f3;
+    margin-top: -20px;
+}
+
+.main-container {
+    width: 55%;
+    background-color: white;
+    margin: 20px auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 100px;
+}
+
+.noWin {
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.main-container p {
+    padding-top: 40px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.box1 {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.left-section {
+    width: 25%;
+    height: 100%;
+    margin: 1px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.left-bottom {
+    margin: 1px;
+    width: 100%;
+    flex-flow: row nowrap;
+    font-size: 12px;
+}
+
+.firstW {
+    width: 98%;
+    height: 90%;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.right-section {
+    margin: 1px;
+    width: 75%;
+    height: 100%;
+    padding-left: 10px;
+}
+
+.phrase-section {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 32%;
+}
+
+.phrase-section div:nth-child(2) {
+    padding-top: 20px;
+    font-size: 20px;
+    color: red;
+    height: 50%;
+    width: 100%;
+}
+
+.phrase-section div:nth-child(3) {
+    font-size: 30px;
+    font-weight: 900;
+    height: 50%;
+    width: 100%;
+}
+
+.box-section {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 67%;
+}
+
+.left-box {
+    width: 50%;
+    margin: 1px;
+    font-size: 13px;
+    padding: 10px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.subAward {
+    margin-top: 20px;
+}
+
+.right-box {
+    width: 50%;
+    margin: 1px;
+    padding: 0 0 0 10px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.contain1 {
+    width: 100%;
+    height: 45%;
+    border: 1px solid rgb(190, 176, 176);
+    margin-bottom: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.contain1-box1 {
+    width: 99%;
+    height: 49%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.contain1-box1 div {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contain1-box2 {
+    width: 99%;
+    height: 49%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.contain1-box2 div {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contain1-box2-1st {
+    border-right: 1px solid rgb(190, 176, 176);
+}
+
+.contain1-box2-1st div {
+    font-size: 16px;
+}
+
+.result {
+    width: 100px;
+    background: none;
+    border: none;
+}
+
+.contain1-box2-2st {
+    border-right: 1px solid rgb(190, 176, 176);
+}
+
+.contain2 {
+    width: 100%;
+    height: 20%;
+    border: 1px solid rgb(190, 176, 176);
+}
+
+.contain2 div {
+    margin: 5px 20px;
+    line-height: 28px;
+}
+
+.contain3 {
+    margin-top: 10px;
+    width: 100%;
+    height: 28%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.left-contain {
+    width: 49%;
+    height: 70%;
+    border: 1px solid black;
+}
+
+.left-contain>a {
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.left-contain>a:hover {
+    text-decoration: none;
+    background-color: rgb(209, 195, 195);
+}
+
+.right-contain {
+    margin-left: 10px;
+    width: 49%;
+    height: 70%;
+    border: 1px solid black;
+    font-weight: 900;
+}
+
+.right-contain>a {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+}
+
+.right-contain>a:hover {
+    text-decoration: none;
+    background-color: rgb(209, 195, 195);
+}
+
+
+/* second-section */
+
+
+/* second-section */
+
+.second-section {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #eee;
+    margin: 20px auto 30px auto;
+    display: flex;
+}
+
+.btn-section {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 50%;
+    justify-content: center;
+    width: 400px;
+    text-align: center;
+    margin-top: 36px;
+    margin-left: 30px;
+}
+
+.btn-section a {
+    text-decoration: none;
+}
+
+.btn-1 {
+    background-color: #64636d;
+    border-top: 2px solid #64636d;
+    border-left: 1px solid #64636d;
+    border-right: 1px solid #64636d;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 auto;
+    width: 33%;
+    color: white;
+    margin-right: 1px;
+}
+
+.btn-1:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-2 {
+    background-color: #64636d;
+    border-top: 2px solid #64636d;
+    border-left: 1px solid #64636d;
+    border-right: 1px solid #64636d;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 auto;
+    width: 33%;
+    color: white;
+    margin-right: 1px;
+}
+
+.btn-2:hover {
+    text-decoration: none;
+    color: white
+}
+
+.btn-3 {
+    background-color: white;
+    border-top: 2px solid #53535d;
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 auto;
+    width: 33%;
+    color: #404040;
+    margin-right: 1px;
+}
+
+.btn-3:hover {
+    text-decoration: none;
+    color: black
+}
+
+
+/* //second-section */
+
+
+/* third-section */
+
+.third-mainCon {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.third-left {
+    width: 23%;
+    margin-right: auto;
+}
+
+.third-right {
+    width: 70%;
+    margin-bottom: 100px;
+}
+
+.firstW2 {
+    width: 100%;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.chatRow {
+    border: 1px solid rgb(160, 140, 140);
+    width: 100%;
+    margin-top: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    padding-bottom: 1px;
+    position: relative;
+}
+
+.chatRow-box1 {
+    width: 100%;
+    height: 500px;
+    background-color: #f0f1f3;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 1px;
+    padding-top: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  
+}
+
+.files-box{
+    visibility: hidden;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width:100%;
+    height: 500px;
+    background-color: rgba(204, 177, 177, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.file-show{
+    visibility: visible;
+}
+.files-select{
+    display: flex;
+    flex-flow: row wrap;
+    width:50%;
+    height: 200px;
+    background-color: white;
+    text-align: center;
+    justify-content: center;
+}
+.btn-yes{
+    width: 20%;
+    background-color: red;
+    color: white;
+    height: 30px;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+.btn-no{
+    width: 20%;
+    background-color: #ccc;
+    color: white;
+    height: 30px;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+
+.chatRow-box2 {
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-top: 1px solid rgb(153, 151, 151);
+}
+
+.chatRow-box3 {
+    width: 100%;
+    height: 100px;
+    background-color: #f0f1f3;
+    border-top: 1px solid rgb(153, 151, 151);
+}
+
+.messageArea {
+    width: 100%;
+    height: 100px;
+    border: none;
+    background-color: #f0f1f3;
+    resize: none;
+}
+
+.box1-1 {
+    width: 95%;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 30px 20px;
+    cursor: pointer;
+}
+
+.box1-1 div:nth-child(1) {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+
+.box1-1 div:nth-child(2) {
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    font-weight: 900
+}
+
+.subPanel {
+    margin-top: 15px;
+    height: 200px;
+    overflow-y: scroll;
+    line-height: 20px;
+}
+
+.chatRow-box2 {
+    display: flex;
+    flex-flow: nowrap;
+    align-items: center;
+}
+
+.btn-mesaage {
+    line-height: 39px;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    font-weight: 900;
+    color: rgb(56, 52, 48);
+    border-bottom: 2px solid rgb(216, 20, 20);
+    cursor: pointer;
+}
+
+.btn-mesaage:hover {
+    background-color: #ccc;
+}
+
+.btn-end {
+    line-height: 39px;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    font-weight: 900;
+    color: rgb(56, 52, 48);
+    cursor: pointer;
+}
+
+.btn-end:hover {
+    background-color: #ccc;
+}
+
+.contest-end{
+    line-height: 39px;
+    text-align: center;
+    width: 35%;
+    height: 100%;
+    font-weight: 900;
+    color: rgb(56, 52, 48);
+    cursor: pointer;
+}
+
+.contest-end:hover{
+    background-color: #ccc;
+}
+
+.chatRow-box4 {
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-top: 1px solid rgb(153, 151, 151);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.fileSubmit {
+    height: 80%;
+    width: 50%;
+    position: relative;
+}
+
+.fileSubmit label {
+    padding: .5em .75em;
+    color: rgb(0, 0, 0);
+    height: 30px;
+    background-color: #cfc9c9;
+    cursor: pointer;
+    border: 1px solid #d1d1d1;
+    border-bottom-color: #b8b6b6;
+    border-radius: .25em;
+    margin-left: 20px;
+}
+
+.fileSubmit input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    margin-left: 20px;
+}
+
+.messageSubmit {
+    width: 50%;
+    height: 80%;
+    text-align: right;
+}
+
+.messageSubmit button {
+    width: 100px;
+    height: 30px;
+    margin-right: 10px;
+    color: white;
+    background: red;
+}
+
+#chatBody {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0 20px;
+    margin: 20px 0;
+    max-height: 500px;
+}
+
+.li2 {
+    list-style: none;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.li2 p {
+    padding: 10px;
+}
+
+.right-message {
+    float: right;
+    color: white;
+    background-color: rgb(221, 193, 193);
+    max-width: 47%;
+    padding: 10px;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.left-message {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 47%;
+    float: left;
+    color: white;
+    background-color: rgb(201, 29, 29);
+    white-space: pre-wrap;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+
+/* SCROLLBAR */
+
+
+/* Let's get this party started */
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    padding-right: 20px;
+    background: rgb(199, 179, 179);
+    border: 4px solid transparent;
+    background-clip: content-box;
+    /* THIS IS IMPORTANT */
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: rgb(189, 57, 57);
+    border: 1px solid rgb(184, 172, 172);
+}
+
+button.replace {
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+
+@media (max-width:1000px){
+    .main-container{
+        width: 100%;
+        background-color: white;
+        margin: 20px auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 100px;
+    }
+}
+
+/* //third-section */

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <!-- owlCarousel -->
+  <link rel="stylesheet" href="/stylesheets/owl/owl.carousel.min.css">
+  <link rel="stylesheet" href="/stylesheets/owl/owl.theme.default.min.css">
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/contestView/indexList.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+
+
+    <!-- head-section -->
+    <div class="first-section">
+      <div class="wrap-box">
+        <h3><b>콘테스트 보기</b></h3>
+        <div class="link-btn">
+          <div class="list-btn">
+            <a href="/contest/list" style="color:#404040;">진행중인 콘테스트</a>
+          </div>
+          <div class="audit-btn">
+            <a href="/contest/list/audit" style="color:white">심사중인 콘테스트</a>
+          </div>
+          <div class="end-btn">
+            <a href="/contest/list/end" style="color:white">종료된 콘테스트</a>
+          </div>
+          <% if(users) {%>
+            <div class="wish-btn">
+              <a href="/contest/list/wish" style="color:white">관심 콘테스트</a>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- //head-section -->
+
+    <!-- second-section -->
+    <div class="second-section">
+      <div class="wrap-box2">
+        <div class="option-section">
+          <select class="category-option" name="category">
+            <option value="all">전체 카테고리보기()</option>
+            <option value="logo" class="chkk">로고 디자인()</option>
+            <option value="goodsPackage" class="chkk">제품 패키지 디자인()</option>
+            <option value="editDesign" class="chkk">편집 디자인()</option>
+            <option value="web/app" class="chkk">웹/앱 디자인()</option>
+          </select>
+          <select class="type-option">
+            <option value="all">전체 업종보기()</option>
+            <option value="logo">식당/카페()</option>
+            <option value="goodsPackage">식품/건강()</option>
+            <option value="editDesign">IT/미디어()</option>
+            <option value="web/app">뷰티/패션()</option>
+            <option value="web/app">병원()</option>
+            <option value="web/app">애완동물()</option>
+            <option value="web/app">교육/육아()</option>
+            <option value="web/app">재능기부/공공기관()</option>
+            <option value="web/app">일반/기타()</option>
+          </select>
+          <select class="sort-option">
+            <option value="all">기본 정렬()</option>
+            <option value="logo">마감임박 순 정렬()</option>
+            <option value="goodsPackage">최신등록 순 정렬()</option>
+            <option value="editDesign">참여자 순 정렬()</option>
+            <option value="web/app">총상금 순 정렬()</option>
+            <option value="web/app">조회 순 정렬()</option>
+          </select>
+          <div class="serch-section">
+            <input type="text" class="searchForm" placeholder="콘테스트 검색"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></input>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //second-section -->
+
+    <!-- third-section -->
+    <div class="third-section">
+      <div class="wrap-box3">
+        <div class="contest-board1">
+          <h5 style="text-align:center; margin-top:15px"><img src="/images/contestView/pimg.png"/>우승 확률이 높은 콘테스트</h5>
+          <hr/>
+          <% participation.forEach(function(parti, index){ %>
+          <ul>
+            <li><%=index+1%>.<%=parti.title%></li>
+          </ul>
+          <% }) %>
+        </div>
+        <div class="contest-board2">
+          <h5 style="text-align:center; margin-top:15px"><img src="/images/contestView/mimg.png"/>최대 상금 콘테스트</h5>
+          <hr/>
+            <% prize.forEach(function(priz, index){ %>
+              <ul>
+                <li><%=index+1%>.<%=priz.title%></li> 
+              </ul>
+          <% }) %>
+          </ul>
+        </div>
+        <div class="contest-board3">
+          <h5 style="text-align:center; margin-top:15px"><img src="/images/contestView/nimg.png"/>최신 등록 콘테스트</h5>
+          <hr/>
+          <ul>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- third-section -->
+
+    <!-- forth-section -->
+    <div class="forth-section">
+      <div class="wrap-box4">
+        <div class="owl-carousel">
+          <div class="item"><img src="/images/owl/item1.jpg"/></div>
+          <div class="item"><img src="/images/owl/item2.jpg"/></div>
+          <div class="item"><img src="/images/owl/item3.jpg"/></div>
+          <div class="item"><img src="/images/owl/item4.jpg"/></div>
+          <div class="item"><img src="/images/owl/item5.jpg"/></div>
+          <div class="item"><img src="/images/owl/item7.jpg"/></div>
+          <div class="item"><img src="/images/owl/item8.jpg"/></div>
+        </div>
+      </div>
+    </div>
+    <!-- //forth-section -->  
+
+    <!-- fifth-section -->
+    <div class="fifth-section">
+      <div class="wrap-box5">
+        <ul id="list">
+          
+        </ul>
+      </div>  
+    </div>
+    <!-- //fifth-section -->
+<!-- 위에 상단 3개 게시판 같은 경우는 
+router.get()할때 조회해서 가져온 값들을 입력한다.
+
+로고 카테고리 버튼을클릭하면 ajax가 실행이 되고
+그 실행에 따른 url을 타고가면 find로 값을 찾고(작성일 기준으로) 그 값을 
+.done(parameter)에 담는다 parameter값을 이용하여 forEach문으로 돌려서 값을 출력한다.
+-->
+    
+    
+    <!-- view -->
+    <div style="height:200px;">
+      
+    </div>
+
+</div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"></script>
+    <script src="/javascripts/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function() {
+  
+            var currentPage = "";
+            checkForHash();           
+
+            $('.category-option').bind('change', function(e) {
+                  currentPage = $(this).val();
+                  // alert(currentPage);
+                  // showPage($(this).val());
+              });
+
+            $('.alink').on('click', function(e) {
+              alert("Alink!");
+                document.location.hash = '#' + currentPage;
+                alert("document: " + document.location.hash);
+                  });
+              });
+
+        function checkForHash() {
+            if(document.location.hash){
+                var HashLocationName = document.location.hash;
+                HashLocationName = HashLocationName.replace('#','');
+                $('#display').html(HashLocationName)
+            };
+        };
+              
+        function showPage(value) {
+          $('#display').html(value);
+      }
+      
+      $(document).ready(function(){
+          $(".owl-carousel").owlCarousel({
+            items:4,
+            loop:true,
+            margin:2,
+            autoplay:true,
+            autoplayTimeout:2000,
+            autoplayHoverPause:true,
+          });
+        });
+
+        (function(){
+          $(document).ready(function(){
+            $('.category-option').on('change', function(){
+             var selected = $("select[name=category]").val();
+              if(selected == "logo"){
+                $.ajax({
+                  url: '/contest/list/logo_ajax/search',
+                  type: 'POST'
+                })
+                .done(function(logos){
+                  if(logos){
+                    // alert("호출되었습니다.");
+                    $.each(logos.contest, function(i, contest){
+                      // console.log(logos.contest[i]);
+                        var newdiv="";
+                        newdiv +=      '<li class="list-box"><a class="alink" href="/contest/view/'+logos.contest[i].id+'">';
+                        newdiv +=        '<div class="board-container">';
+                        newdiv +=          '<div class="board1">';
+                        newdiv +=            '<div class="img-section">';
+                        newdiv +=              '<img src="/images/contestView/thumbimg_logo.png"/>';
+                        newdiv +=            '</div>';
+                        newdiv +=            '<div class="list">';
+                        newdiv +=              '<div class="list-top">';
+                        newdiv +=                '<span>'+logos.contest[i].contestType+'</span> / <span><b>'+logos.contest[i].title+'</b></span>';
+                        newdiv +=              '</div>';
+                        newdiv +=              '<div class="list-bottom">';
+                        newdiv +=                '<span>' + logos.contest[i].company+ '</span>&nbsp&nbsp&nbsp      <span class="click-section"><b>조회수</b> : 명 </span>';
+                        newdiv +=              '</div>';
+                        newdiv +=              '<hr/>';
+                        newdiv +=            '</div>';
+                        newdiv +=          '</div>';
+                        newdiv +=          '<div class="board2">';
+                        newdiv +=          '<p>'+logos.contest[i].serviceDescription+'</p>';
+                        newdiv +=          '</div>';
+                        newdiv +=          '<div class="board3">';
+                        newdiv +=            '<div class="board3-floor1">';
+                        newdiv +=              '<p>1등 : '+ logos.contest[i].totalPrize + ' 원</p>';
+                        newdiv +=            '</div>';
+                        newdiv +=            '<div class="board3-floor2">';
+                        newdiv +=              '<p>남은기간: </p>';
+                        newdiv +=            '</div>';
+                        newdiv +=            '<div class="board3-floor3">';
+                        newdiv +=            '<p> 참여자: 명</p>';
+                        newdiv +=            '</div>';
+                        newdiv +=            '<div class="board3-floor4">';
+                        newdiv +=              '관심리스트 추가';
+                        newdiv +=            '</div>';
+                        newdiv +=          '</div>';
+                        newdiv +=        '</div>';
+                        newdiv +=      '</a></li>';
+
+                        $('#list').append(newdiv);
+                          
+                      });
+                  };
+                })
+                .fail(function(logos){
+                  console.log(logos);
+                });
+              } else {
+                alert("제대로 선택해주세요!");
+              }
+              return false;
+            });
+          });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/contestView/viewJoin.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+    <!-- all-wrap -->
+    <div id="all-wrap">
+      
+      <div class="container">
+        <ul>
+          <li class="list-box">
+            <div class="board-container">
+              <div class="board1">
+                <div class="img-section">
+                  <img src="/images/contestView/thumbimg_logo.png"/>
+                </div>
+                <div class="list">
+                  <div class="list-top">
+                    <span><%=contest.contestType%></span> &nbsp;|&nbsp; <span><b><%=contest.title%></b></span>
+                  </div>
+                  <div class="list-bottom">
+                   <span><%=contest.name%></span>&nbsp;|&nbsp;<span><%=contest.company%></span>&nbsp&nbsp&nbsp<span class="click-section"><b>조회수</b> : 명 </span>
+                  </div>
+                  <hr class="hr1"/>
+                </div>
+              </div>
+              <div class="board2">
+                <p><%=contest.serviceDescription%></p>
+              </div>
+              <div class="board3">
+                <div class="board3-floor1">
+                <p>
+                  <%if(contest.award1 && contest.award1 != 0 ){%> 
+                    <span>1등 :<%=contest.award1%> 원</span>&nbsp;
+                  <%}%>
+                  <%if(contest.award2 && contest.award2 != 0){%> 
+                    <span>2등 : <%=contest.award2%>원</span>&nbsp;
+                  <%}%>
+                  <%if(contest.award3 && contest.award3 != 0){%> 
+                    <p><span>3등 :<%=contest.award3%> 원</span></p>
+                  <%}%>
+                </p>  
+                </div>
+                <div class="board3-floor2">
+                  <p>남은기간: </p>
+                </div>
+                <div class="board3-floor3">
+                <p> 참여자: 명</p>
+                </div>
+                <div class="board3-floor4">
+                  관심리스트 추가
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <!-- second-section -->
+        <div class="second-section">
+          <div class="btn-section">
+              <a href="/contest/view/<%=contest.id%>" class="btn-1">참여작 보기</a>
+              <a href="/contest/view/brief/<%=contest.id%>" class="btn-2">브리핑 보기</a>
+              <a href="/contest/view/join/<%=contest.id%>" class="btn-3">콘테스트 참여</a>
+          </div>
+        </div>
+      <!-- second-section -->
+
+
+      <!-- third-section -->
+      <div class="third-section">
+        <!--first-box -->
+          <div class="first-box">
+            <div class="in-container1">
+              <img src="/images/contestView/img_step01.png"/>
+            </div>
+            <div class="in-container2">
+              <p style="font-size:17px; text-align:left;"><b> >디자인 업로드 Checklist</b></p>
+              <hr class="hr1"/>
+              <div class="image">
+                <img class="imgs" src="/images/contestView/join_info.png" />
+              </div>
+              <div class="text-box">
+                <div class="text1">1. 상업적 사용이 제한되는 스톡이미지의 사용 규정 및 범위를 위반할 시, 계정이 영구적으로 삭제될 수 있습니다.</div>
+                <div class="text1">2. <span>라우드소싱의 판단 하에 본 디자인이 다른 디자이너의 작품을 도용한 것으로 판단되는 경우, 라우드소싱은 해당 디자이너의
+                      활동을 제지 혹은 금지할 수 있습니다.</span> 또한 상금이 지급되었을 경우 라우드소싱은 디자이너에게 전액 환불을 요구할 수 있으며,
+                      이에서 파생되는 의뢰자와의 분쟁 및 손해에 관해서는 관련법규에 따라 디자이너에게 배상의 의무가 부여될 수 있습니다.
+                      반드시 자신의 디자인만 등록해 주세요.</div>
+                <div class="text1">3. 잘못된 디자인으로 인해 법적인 문제에 휘말리게 될 경우, 모든 법적 그리고 금전적인 손실에 대한 책임은 디자이너 측에 있습니다.</div>
+              </div>
+              <hr class="hr1"/>
+              <div class="text1">* 라우드소싱 참여 시 반드시 <b>[법률 제 11110호 - 저작권법]</b>을 준수하여야 합니다.</div>    
+            </div>
+
+            <div class="in-container3">
+              <p style="font-size:17px; text-align:left;"><b> >디자인 업로드 Checklist</b></p>
+              <hr class="hr1"/>
+              <div class="text-box">
+                <div class="text1">1. 공모전은 기본 1주일(패키지/제품/웹/앱: 2주) 동안 진행되며, 시안 마감 후에 의뢰자의 요청에 따라 기간이 연장될 수 있습니다.(1회 한정)</div>
+                <div class="text1">2. 공모전 총 상금 중 80%가 지급상금으로 참여 디자이너 분들께 배분됩니다. 이 중 70%는 우승하신 디자이너 분께,10%는 우승자를 제외한 1차 
+                                      통과자 분들께 고르게 배분됩니다.(상금 100% 옵션 제외 / 브론즈-최저 상금 콘테스트의 경우 상금의 80% 모두가 우승 디자이너에게 지급됩니다.)</div>
+                <div class="text1">3. 우승작이 선정되지 않고 공모전이 종료되는 경우, 지급상금은 해당 콘테스트에 참여하신 모든 디자이너 분들께 고르게 배분됩니다.</div>
+                <div class="text1">4. 고급 및 프리미엄 패키지는 총 상금 중 50%가 환불될 수 있으며, 환불이 발생하는 경우 총 상금의 30%가 
+                                      해당 콘테스트에 참여 디자이너 분들께 고르게 배분됩니다.</div>
+                <div class="text1">5. 디자이너는 공모전을 개최한 <b>의뢰자와 이해 관계가 없어야 하며, 의뢰자와 이해관계가 있을 경우 참여 불가</b> 및 우승시 취소 됩니다.</div>
+              </div>
+            
+            
+            
+            
+            </div>
+            
+            
+            <div class="checkPoint">
+              <span>위 사항을 모두 확인하였습니까?</span>
+              <input class="chkk" type="checkbox" id="myCheck"><label for="myCheck"><b style="font-size:17px;">예(필수)</b></label> 
+            </div>
+          </div>
+          <!-- first-box-->
+
+          <div class="second-box">
+           <div class="second-container1">
+              <div class="image-section">
+                <img src="/images/contestView/img_step02.png"/>
+              </div>
+           </div>
+           <div class="second-container2">
+            <form id="formsection" action="" method="post"/>
+            <input type="text" value="<%=contest.id%>" name="contestId" hidden/>
+            <input type="text" value="<%=users.name%>" name="userName" hidden/>
+            <div class="box1">
+              <div class="box-left">
+                <div><b> >작품 제목</b></div>
+              </div>
+              <div class="box-right">
+                <input class="form-control" type="text" maxcol="60" name="partTitle"/>
+                <p style="font-size:13px; margin-top:10px;">60자 이내로 적어주세요.</p>
+              </div>
+            </div>
+            <div class="box1">
+              <div class="box-left">
+                <div><b> >미리보기 이미지</b></div>
+              </div>
+              <div class="box-right">
+                <input type="file" value="파일 선택" name="uploadfile"/>
+                <input type="button" id="thumnailUp" value="파일업로드" />
+                <p style="font-size:13px; margin-top:10px;">(작품을 대표할 수 있는 정사각형의 썸네일 이미지를 올려주세요. 기준사이즈:<b>600 X 600</b></p>
+                <div class="panel panel-default" hidden>
+                  <div class="panel-body">
+                    <ul id="uploaded">
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box1">
+              <div class="box-left">
+                <div><b> >상세작품 이미지</b></div>
+              </div>
+              <div class="box-right">
+                <input type="file" value="파일 선택" name="uploadfile2" id="detailUp"/>
+                <input type="button" id="detailImage" value="파일업로드" />
+                <p style="font-size:13px; margin-top:10px;">(RGB 형식의 JPG업로드 l 최대 용량 2mb l <b>(가로최대 1024px, 세로 자유)</b></p>
+                <div class="panel panel-default" hidden>
+                  <div class="panel-body">
+                    <ul id="uploaded2">
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box2">
+              <div class="box-left">
+                <div><b> >작품 설명</b></div>
+              </div>
+              <div class="box-right">
+                <textarea rows="13" cols="90" name="partDescription" onclick="if(this.value=='내용을 입력하세요'){this.value=''}">내용을 입력하세요</textarea>
+              </div>
+            </div>
+            <div class="box3">
+              <div class="box-left">
+                <div><b> >등록 약관</b></div>
+              </div>
+              <div class="box-right">
+                <div class="panel panel-default">
+                  <div class="panel-body" >
+                      <div style="line-height:20px;">저작권에 관한 사항<br/>
+                        1. 의뢰자(고객)와 참여자(디자이너)는 ‘약관부록’ 중 ‘8.지적재산권’에 관한 아래의 내용에 관하여 반드시 숙지한 후 그에 관한 동의여부를 결정하여 주시기 바랍니다.<br/>
+
+                        1) 참여자는 제3자의 저작권 등을 침해해서는 안되며, 만일 이를 위반하여 의뢰자 또는 제3자에게 손해를 끼칠 경우에는 민•형사상의 모든 책임을 지게 됩니다. 이는 콘테스트가 종료되어 이미 우승작으로 선정된 경우에도 해당되는 것으로 저작권 침해 또는 이와 관련된 문제 발생 시 선정 후에라도 취소가 가능하며, 이런 경우 회사는 우승작으로 선정된 참여자에게 지급한 상금을 회수할 수 있습니다.
+                        2) 모든 콘테스트에 등록되는 참여자의 중간인도물, 사전작업물, 최종인도물의 개별구성요소에 대한 지적재산권은 참여자에게 귀속되며, 참여자의 허락 없이 사용할 수 없습니다.<br/>
+                        3) 참여자와 의뢰자 간의 지적재산권 양도 동의가 이루어진 우승작에 대한 지적재산권은 의뢰자에게 양도되며, 지적재산권의 등록에 소요되는 비용은 의뢰자가 부담합니다.<br/>
+                        4) 양도 후 우승작은 의뢰자의 소유이며, 콘테스트가 종료된 이후 참여자의 승인 없이 사용할 수 있습니다.<br/>
+                        5) 콘테스트에 우승한 참여자와 그 우승작을 선정한 의뢰자는, 온라인 및 오프라인상에서 라우드소싱이 해당 우승작을 홍보를 위한 수단으로 로열티 없이 자유롭고 지속적으로 사용하는 것을 승인합니다.<br/>
+                        6) 우승작은 라우드소싱의 홍보를 목적으로 타 온라인 사이트 및 오프라인 등을 통해 복사, 배포, 2차 저작물 제작 및 공개될 수 있습니다.<br/>
+                        7) 라우드소싱은 디자인 및 아이디어의 침해와 관련된 그 어떤 요구나 청구에 대하여 중재자 또는 조정자로 참여하지 않습니다.<br/>
+                        8) 라우드소싱은 의뢰자 또는 참여자가 저지른 지적재산권 관련 침해, 위반 등에 법적인 책임을 지지 않습니다.<br/>
+                        9) 라우드소싱은 홈페이지 상에서 제3자의 지적재산권을 침해한 것으로 판단되거나 침해 가능성이 존재하는 그 어떠한 콘텐츠를 자체적으로 삭제할 수 있습니다.<br/>
+                        의뢰자와 참여자는 추후 우승작이 선정되어 우승작에 관한 원본파일 전송 시 아래의 사항이 포함된 저작권 양도계약을 체결하여야 하는바, 아래의 사항을 반드시 숙지한 후 그에 관한 동의여부를 결정하여 주시기 바랍니다.<br/>
+
+                        (1) 저작재산권의 양도<br/>
+                        우승작으로 선정된 참여자는 위 저작물에 대한 추가•변형권 등 2차적 저작물 작성권을 포함하는 일체의 저작재산권과 위 저작물을 원저작물로 하는 2차적 저작물(현존하는 모든 형태의 매체 및 장래의 새로운 매체에 의한 이용 등 모든 형태의 2차적 저작물을 의미함) 또는 위 저작물을 구성 부분으로 하는 편집 저작물을 작성하여 이용할 권리 전부를 영구적으로 의뢰자에게 양도합니다.<br/>
+
+                        (2) 저작재산권의 이전 등록<br/>
+                        우승작으로 선정된 참여자는 위 저작물에 대하여 저작재산권 (이전)등록을 할 수 있으며, 우승작으로 선정된 참여자는 (이전)등록에 필요한 서류 등을 의뢰자에게 제공하는 등 이에 지체 없이 협력하여야 합니다.<br/>
+
+                        (3) 배타적 이용<br/>
+                        우승작으로 선정된 참여자는 위 저작물의 전부 또는 일부와 동일 또는 유사한 저작물을 제3자에게 이용하게 하거나 설정계약 등을 해서는 안됩니다.<br/>
+
+                        (4) 저작재산권의 권리 변동 사항<br/>
+                        우승작으로 선정된 참여자는 본 계약 이전에 위 저작물에 대하여 제3자에게 질권을 설정하였거나 위 저작물에 관한 창작 작업을 제3자와 공유한 사실이 없고, 저작재산권의 일부 또는 전부를 양도하였거나 이용허락을 한 사실이 있어서는 안됩니다.<br/>
+
+                        (5) 저작재산권 양도대금<br/>
+                        ① 의뢰자는 우승작으로 선정된 참여자에게 위 1)항에 의하여 위 저작물의 저작재산권 전부를 양도하는 대가로 상금을 지급합니다.<br/>
+                        ② 위 제1항의 양도대금은 라우드소싱이 의뢰자로부터 지급받아, 그 양도대금에서 원천징수 소득세(3.3%), 라우드소싱 서비스 운영에 대한 수수료(16.7%) 및 참여보상(10%)를 공제한 후, 그 나머지를 우승작으로 선정된 참여자에게 지급합니다.<br/>
+                        (6) 성명표시권<br/>
+                        우승작으로 선정된 참여자는 의뢰인이 위 저작물을 공표하거나 위 1)항에서 규정하고 있는 위 저작물에 대한 2차적 저작물 내지 편집저작물을 공표하는 경우, 위 저작물 또는 2차적 저작물 내지 편집저작물의 저자로 우승작으로 선정된 참여자를 표시합니다. 다만, 저작물의 성질이나 그 이용의 목적 및 형태 등에 비추어 부득이하거나 저작물을 로고로 사용하는 등 통상적으로 저자를 표시하지 않는 경우라고 인정되는 때에는 그 저자표시를 생략할 수 있습니다.<br/>
+
+
+                        (7) 계약의 해석 및 보완
+                        ① 본 계약서에 명시되어 있지 아니 하거나 해석상 이견이 있을 경우에는 저작권법, 민법 등을 준용하고 사회 통념과 조리에 맞게 해결합니다.<br/>
+                        ② 각 항을 위반하거나 협력의무를 불이행한 경우에 발생한 분쟁 및 손해에 관해 의뢰자나 참여자는 관련법령에 의거하여 배상의 책임을 질 수 있습니다.<br/>
+                    </div>
+                  </div>
+                </div>
+                <input type="checkbox" id="provision" name="provision" /><label for="provision">약관에 동의합니다.</label>
+              </div> 
+            </div>
+            <div class="next">
+              <input type="submit" id="next" value="콘테스트 참여" />
+            </div>
+           </div>
+          </div>
+          <!-- second-box -->
+      </div>
+      <!-- //third-section-->
+      
+      </div>
+      <!-- //container-->
+      <div>
+        <div class="" style="width:100%; height:400px; background-color:black; margin-top:50px;"></div>
+      </div>
+    </div>
+  <!-- //all-wrap -->
+
+</div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"></script>
+    <script>
+
+      $(document).ready(function(){
+        $('#next').on('click', function(){
+          let result =  $("#provision").is(":checked") ;
+          if(result == false){
+            alert("약관에 동의해주세요");
+            return false;
+          } else {
+            alert("콘테스트에 참여 해주셔서 감사합니다.");
+          };
+        }); 
+      });
+
+      $(document).ready(function(){
+        $('.chkk').on('change', function(){
+          var isChecked = $(this).prop('checked');
+          if($(this).prop('checked')){
+            $('.second-box').addClass('move');
+          };
+        });
+      });
+
+      $(function () {
+        $("#detailImage").click(function () {
+         var uploaded2 =  $('#uploaded2').val();
+          if(uploaded2 == ''){
+          var formData = new FormData();
+          formData.append("uploadfile2", $("input[name=uploadfile2]")[0].files[0]);
+          $.ajax({
+            url: '/contest/join/ajax_detail',
+            enctype: "multipart/form-data",
+            processData: false,
+            contentType: false,
+            data: formData,
+            type: 'POST',
+            success: function (result) {
+              console.log("result :" + JSON.stringify(result));
+              if (result.message = "파일이 업로드 되었습니다.") {
+                alert(result.DBData.orgFileName + ' 파일이 업로드 되었습니다.');
+                $('#uploaded2').val(result.DBData.orgFileName) 
+                console.log("result : " + result);
+                $("#status").empty().text("업로드 되었습니다.");
+                var newdiv1 = $('<img src="/uploads/' + result.DBData.saveFileName +
+                  '" style="max-width : 100px; max-height:100px;"/><input type="text" name="DBdataId" value="' + result.DBData.id +'" />');
+                var newdiv2 = $('<br/><li>' + result.DBData.orgFileName + '  :  ' + result.message +
+                  '</li>');
+                var newdiv3 = $('<input type="text" name="detailImage" value="' + result.DBData.saveFileName +
+                  ' "/><br/>');
+                $('#uploaded2').append(newdiv2, newdiv3, newdiv1);
+              }
+            },
+            error: function (request, status, error) {
+              if (request.message = "File too large") {
+                alert("파일이 3mb를 초과하셨습니다.")
+                alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" +
+                error);
+              } else {
+              alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" +
+                error);
+              }
+          }
+        });
+        } else {
+          alert("파일은 하나만 업로드 가능합니다.");
+          return false;
+        }
+      });
+    });
+
+
+    $(function () {
+        $("#thumnailUp").click(function () {
+         var uploaded =  $('#uploaded').val();
+          if(uploaded == ''){
+          var formData = new FormData();
+          formData.append("uploadfile", $("input[name=uploadfile]")[0].files[0]);
+          $.ajax({
+            url: '/contest/join/ajax_thumnail',
+            enctype: "multipart/form-data",
+            processData: false,
+            contentType: false,
+            data: formData,
+            type: 'POST',
+            success: function (result) {
+              console.log("result :" + JSON.stringify(result));
+              if (result.message = "파일이 업로드 되었습니다.") {
+                alert(result.DBData.orgFileName + ' 파일이 업로드 되었습니다.');
+                $('#uploaded').val(result.DBData.orgFileName) 
+                console.log("result : " + result);
+                $("#status").empty().text("업로드 되었습니다.");
+                var newdiv1 = $('<img src="/uploads/' + result.DBData.saveFileName +
+                  '" style="max-width : 100px; max-height:100px;"/><input type="text" name="DBdataId" value="' + result.DBData.id +'" />');
+                var newdiv2 = $('<br/><li>' + result.DBData.orgFileName + '  :  ' + result.message +
+                  '</li>');
+                var newdiv3 = $('<input type="hidden" name="thumnailImage" value="' + result.DBData.saveFileName +
+                  ' "/><br/>');
+                $('#uploaded').append(newdiv2, newdiv3, newdiv1);
+              }
+            },
+            error: function (request, status, error) {
+              if (request.message = "File too large") {
+                alert("파일이 3mb를 초과하셨습니다.")
+                alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" +
+                error);
+              } else {
+              alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" +
+                error);
+              }
+          }
+        });
+        } else {
+          alert("파일은 하나만 업로드 가능합니다.");
+          return false;
+        }
+      });
+    });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+.main-contain {
+    display: flex;
+    flex-flow: row wrap;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #F8F8F8;
+}
+
+.hr {
+    width: 95%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    height: 2px;
+    line-height: 0px;
+}
+
+.container-top {
+    display: block;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    padding-left: 30px;
+}
+
+.contain-meddle{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.sub-contain1 {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.contain-left {
+    width: 30%;
+    padding : 20px;
+}
+
+.contain-right {
+    width: 70%;
+    padding-left: 20px;
+}
+
+.title-section {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.company-section {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.service-description-section {
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.service-description-section>input {
+    height: 100px;
+}
+
+.category-section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    width: 90%;
+}
+
+.category-section>div {
+    width: 20%;
+    padding-left: 15px;
+    font-size: 15px;
+}
+
+ul {
+    padding: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+.logo-section {
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0px;
+}
+
+.logo-section li {
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-flow: column wrap;
+    width: 25.5%;
+    height: auto;
+}
+
+.logo-subsection {
+    flex-flow: row nowrap;
+}
+
+.design-section ul li {
+    padding: 0;
+}
+
+.design-section li label {
+    padding-left: 20px;
+}
+
+.design-section {
+    display: flex;
+    flex-flow: row wrap;
+    width: 82%;
+}
+
+.checkbox-wrap {
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 35%;
+}
+
+.checkbox-wrap .check-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.checkbox-wrap input[type=checkbox] {
+    display: none;
+}
+
+/* .checkbox-wrap input[type=checkbox]:checked+.check-icon {
+    margin: -2px;
+    border: 2px solid rgb(3, 2, 2);
+} */
+
+.number0{
+    margin: -3px;
+    border : 3px solid red;
+}
+.number1{
+    margin: -3px;
+    border : 3px solid blue;
+}
+.number2{
+    margin: -3px;
+    border : 3px solid yellow;
+}
+
+.color-section input{
+    margin-top:20px;
+    width:80%;
+}
+ /* range-section */
+
+ .range-table tbody tr td{
+     padding-right: 30px;
+     padding-bottom: 20px;
+ }
+ .range-table tbody tr td:nth-child(1){
+     font-size: 17px;
+ }
+ .range-table tbody tr td:nth-child(3){
+    font-size: 17px;
+}
+ .table-meddle {
+    display:flex;
+    flex-flow: row nowrap;
+    align-items: center;
+ }
+ .sliderBar{
+     height: 50px;
+ }
+
+/* //range-section */
+.forlogo{
+    display: flex;
+    flex-flow:column nowrap;
+}
+.forse{
+    display: flex;
+    flex-flow: row nowrap;
+    padding-top:10px;
+}
+.forse>input{
+    margin-right: 10px;
+}
+.control-label6{
+    width:100%;
+}
+.panel-default ul { padding-left:0px; }
+.panel-default ul li { list-style:none; padding-left:0px;}
+.panel-default .panel-body {min-height:350px; max-height:350px;  overflow-y:scroll; }
+#chatWrap ul li strong::after { content: " : "; }
+
+.upload-contain{
+    width:80%; 
+    margin:30px auto 0 auto;
+}
+
+.description-section{
+    text-align:center;
+}
+
+.description-section textarea{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+#next-box{
+    display: flex;
+    justify-content: flex-end;
+    background-color: black;
+    float: right;
+
+}
+.next{
+    background-color: black;
+    color:white;
+    padding: 20px 40px;
+    font-size: 20px;
+    text-decoration: none;
+}
+.next:active{
+    background-color: black;
+    color:white;
+    padding: 20px 40px;
+    font-size: 20px;
+    text-decoration: none;
+}
+.next-box a{
+    text-decoration:none
+}
+ .next:hover{
+    color:white;
+}

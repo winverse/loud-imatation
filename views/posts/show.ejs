@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <% include ../partials/head %>
+  <style>
+    .showing{
+      display : block;
+
+    }
+  </style>
+</head>
+
+<body>
+  <% include ../partials/nav %>
+
+    <div class="container post post-show">
+      <% include ./partials/header %>
+
+        <div class="buttons">
+          <a class="btn btn-default" href="/posts">Back</a>
+          <% if(isLogin && post.author && users.id == post.author.id){ %>
+            <a class="btn btn-default" href="/posts/<%= post._id %>/edit">Edit</a>
+            <form action="/posts/<%= post._id %>?_method=delete" method="post">
+              <a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+            </form>
+            <% } %>
+        </div>
+        <div class="contentBox">
+          <h3 class="contentBoxTop">
+            <%= post.title %>
+          </h3>
+          <div class="row">
+            <div class="col-sm-4 col-sm-push-8">
+              <div class="post-info">
+                <div><span>Author</span> :
+                  <%= post.author ? post.author.name : "" %>
+                </div>
+                <div><span>Created</span> :
+                  <%= post.createdDate %>
+                    <%= post.createdTime %>
+                </div>
+                <% if(post.updatedAt) { %>
+                  <div><span>Updated</span> :
+                    <%= post.updatedDate %>
+                      <%= post.updatedTime %>
+                  </div>
+                  <% } %>
+              </div>
+              <!-- post-info end -->
+            </div>
+            <!-- col end-->
+            <div class="col-sm-8 col-sm-pull-4">
+              <div class="post-body" style="font-size:15px;">
+                <%= post.body %>
+              </div>
+            </div>
+            <!-- col end-->
+          </div>
+          <!-- row end -->
+        </div>
+        <!-- post-container end -->
+        <!-- 댓글영역  -->
+        <hr />
+        <div id="comment_area">
+        <% if(comments == null || comments.length == 0){ %>
+          <div></div>
+        <% } %>
+        <% if(comments != null || comments.length != 0){ %>
+        <% comments.forEach(function(comment){ %>
+        <ul class="comment_form" style="list-style: none; padding :0px; font-size:15px;"  comment_id='<%=comment._id%>'>
+        <li>
+        <div class="" style="display : flex; justify-content: flex-start;">
+            <div class="author" style="flex:1;"><%= comment.author%></div>
+            <div class="date" style="flex:1; text-align : left;" ><%= comment.createdDate %></div>
+            <div class="update" style="flex:2 text-align : left;" >수정</div>
+            <div class="delete" style="flex:2 text-align : left;">(<a class='comment_delete' style="cursor:pointer">삭제</a>)</div>
+            <div class="recomment" style="flex:2 text-align : left;">(<a class='comment_add' style="cursor:pointer">대댓글</a>)</div>
+        </div>
+            <div class="comments" style="margin-top : 6px; font-size:15px;" >
+               <%=comment.content%>
+              </div>
+              <hr/>
+            </li>
+          </ul>
+          <% }); %>
+       <% } %>
+        </div>
+
+        <div>
+          <div>
+            <form class="commentForm" action="" method="post">
+              <input type="hidden" name="post_id" value="<%= post.id%>" />
+              <textarea class="form-control" name="content" style="font-size:15px;"></textarea>
+              <button class="btn-default" style="margin-top: 10px; padding : 10px; font-size : 10px">댓글작성</button>
+            </form>
+          </div>
+          <!-- 댓글영역  -->
+        </div>
+        <!-- container end -->
+        <script>
+          (function () {
+            $(document).ready(function () {
+              $('.commentForm').submit(function () {
+                var $contentVal = $(this).children('textarea[name=content]').val();
+                if ($contentVal) {
+                  $.ajax({
+                      url: '/posts/ajax_comment/insert',
+                      type: 'POST',
+                      data: $(this).serialize(),
+                    })
+                    .done(function (args) {
+                      if (args.message === "success") {
+                        $('#comment_area').append(
+                          '<div style="margin-top : 6px; font-size:15px;">' + args.content + " ( <a class='comment_add' style='cursor:pointer'>대댓글</a> ) ( <a class='comment_delete' style='cursor:pointer' comment_id='"  + args.id + "'>삭제</a> ) </div>"
+                          // "<div>"+args.comment+"</div>"
+                        );
+                        $('.commentForm textarea[name=content]').val("");
+                      }
+                    })
+                    .fail(function (args) {
+                      console.log(args);
+                    });
+                } else {
+                  alert('댓글 내용을 입력해주세요.')
+                }
+                return false;
+              });
+            });
+          })();
+
+          $(document).on('click', '.comment_delete', function () {
+            if (confirm('삭제하시겠습니까?')) { //확인창 예 눌렀을 시만 진행
+              var $self = $(this);
+              $.ajax({
+                  url: '/posts/ajax_comment/delete',
+                  type: 'POST',
+                  data: {
+                    comment_id: $self.parents('.comment_form').attr('comment_id')
+                  },
+                })
+                .done(function () {
+                  $self.parents('.comment_form').remove();
+                })
+                .fail(function (args) {
+                  console.log(args);
+                });
+            }
+          });
+
+          //대댓글 누르면 댓글창 생성
+          $(function(){
+            $(document).on('click', '.comment_add', function(){
+              console.log("click")
+             $(this).nextAll('.recommentForm').toggle(function () {
+                  $(this).nextAll(".recommentForm").addClass("showing");
+              }, function () {
+                  $(this).nextAll(".recommentForm").removeClass("showing");
+              });
+          });
+          });
+        </script>
+</body>
+
+</html>

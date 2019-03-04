@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/stylesheets/main/main.css">
+  <link rel="stylesheet" href="/stylesheets/contest/brief.css">
+  <link rel="stylesheet" href="/stylesheets/slider.css">
+</head>
+
+<body>
+  <div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../../partials/nav.ejs %>
+      <!-- ======  Nav section end  ====== -->
+        
+
+      <div class="main-contain">
+        <form id="formSection" action="" method="post">
+          <div class="container-top">
+            <h1>step 2-2</h1>
+            <h4>작업 내용을 상세히 설명해주세요</h4>
+          </div>
+          <hr class="hr" />
+          <div class="contain-meddle">
+
+            <div class="sub-contain1">
+              <div class="contain-left">
+                <h1>1.</h1>
+                <h4>의뢰하실 디자인을 설명해주세요.</h4>
+              </div>
+              <div class="contain-right">
+                <div class="title-section">
+                  <label for="titlel" class="col-sm-3 control-label">제목</label>
+                  <input class="form-control" type="text" id="title" name="title" value="">
+                </div>
+                <div class="company-section">
+                  <label for="company" class="col-sm-3 control-label">회사(단체)명</label>
+                  <input class="form-control" type="text" id="company" name="company" value="">
+                </div>
+                <div class="service-description-section">
+                  <label for="service-description" class="col-sm-3 control-label">서비스 설명</label>
+                  <br/>
+                  <textarea cols=40 rows=9 onclick="if(this.value='내용을 입력하세요'){this.value=''}" id="service-description" name="serviceDescription">내용을 입력하세요</textarea>
+                </div>
+                <h3 style="padding-left:10px;">업종</h3>
+                <div class="category-section">
+                  <div class="">
+                    <input type="radio" name="category" id="checkbox1" value="radio1" checked/>
+                    <label for="checkbox1">식당/까페</label>
+                  </div>
+                  <div class="">
+                    <input type="radio" name="category" id="checkbox2" value="radio2" />
+                    <label for="checkbox2">식품/건강</label>
+                  </div>
+                  <div class="">
+                    <input type="radio" name="category" id="checkbox3" value="radio3" />
+                    <label for="checkbox3">IT/미디어</label>
+                  </div>
+                  <div class="r">
+                    <input type="radio" name="category" id="checkbox4" value="radio4" />
+                    <label for="checkbox4">뷰티/패션</label>
+                  </div>
+                  <div class="">
+                    <input type="radio" name="category" id="checkbox5" value="radio5" />
+                    <label for="checkbox5">패션</label>
+                  </div>
+                  <div class="">
+                    <input type="radio" name="category" id="checkbox6" value="radio6" />
+                    <label for="checkbox6">애완용품</label>
+                  </div>
+                  <div class="">
+                    <input type="radio" name="category" id="checkbox7" value="radio7" />
+                    <label for="checkbox7">교육/육아</label>
+                  </div>
+                  <div class="">
+                    <input type="radio" name="category" id="checkbox8" value="radio8" />
+                    <label for="checkbox8">공기업/기관</label>
+                  </div>
+                  <div class="">
+                    <input type="radio" name="category" id="checkbox9" value="radio9" />
+                    <label for="checkbox9">일반/기타</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- right end -->
+          <hr class="hr" />
+          <div class="contain-meddle">
+            <div class="sub-contain1">
+              <div class="contain-left">
+                <h1>2.</h1>
+                <h4>어떤 스타일의 로고를 원하세요?</h4>
+                <h6>(3개까지 선택가능)</h6>
+              </div>
+              <div class="contain-right">
+                <h3 style="padding-left:20px;">원하는 스타일의 로고타입을 골라주세요(최대 3개)</h3>
+                <ul class="logo-section">
+                  <li>
+                    <img src="/images/logo/1.jpg" alt="">
+                    <div class="logo-subsection">
+                      <input class="chk" type="checkbox" name="logoStyle" value="logoStyle1" id="data1" onclick="CountChecked(this)">
+                      <label for="data1">텍스트로고</label>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="/images/logo/2.jpg" alt="">
+                    <div class="logo-subsection">
+                      <input class="chk" type="checkbox" name="logoStyle" value="logoStyle2" id="data2" onclick="CountChecked(this)">
+                      <label for="data2">그림로고</label>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="/images/logo/3.jpg" alt="">
+                    <div class="logo-subsection">
+                      <input class="chk" type="checkbox" name="logoStyle" value="logoStyle3" id="data3" onclick="CountChecked(this)">
+                      <label for="data3">심볼로고</label>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="/images/logo/4.jpg" alt="">
+                    <div class="logo-subsection">
+                      <input class="chk" type="checkbox" name="logoStyle" value="logoStyle4" id="data4" onclick="CountChecked(this)">
+                      <label for="data4">글자로고</label>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="/images/logo/5.jpg" alt="">
+                    <div class="logo-subsection">
+                      <input class="chk" type="checkbox" name="logoStyle" value="logoStyle5" id="data5" onclick="CountChecked(this)">
+                      <label for="data5">엠블럼로고</label>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="/images/logo/6.jpg" alt="">
+                    <div class="logo-subsection">
+                      <input class="chk" type="checkbox" name="logoStyle" value="logoStyle6" id="data6" onclick="CountChecked(this)">
+                      <label for="data6">캐릭터로고</label>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="/images/logo/7.jpg" alt="">
+                    <div class="logo-subsection">
+                      <input class="chk" type="checkbox" name="logoStyle" value="logoStyle7" id="data7" onclick="CountChecked(this)">
+                      <label for="data7">web2.0스타일로고</label>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="/images/logo/8.jpg" alt="">
+                    <div class="logo-subsection">
+                      <input class="chk" type="checkbox" name="logoStyle" value="logoStyle8" id="data8" onclick="CountChecked(this)">
+                      <label for="data8">켈라그라피 스타일 로고</label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr class="hr" />
+          <div class="contain-meddle">
+            <div class="sub-contain1">
+              <div class="contain-left">
+                <h1>3.</h1>
+                <h4>선호하는 디자인스타일을 선택해주세요</h4>
+                <h6>(3개까지 선택가능)</h6>
+
+                <p id="demo"></p>
+              </div>
+              <div class="contain-right">
+                <h4 style="padding-left:20px; width:85%; font-weight:600;">선호하시는 디자인 스타일에 따라 디자이너의 참여도와
+                  <br/>작품 퀄리티가 달라집니다.</h4>
+                <ul class="design-section">
+                  <li>
+                    <label class="checkbox-wrap">
+                      <input class="chkk" type="checkbox" name="picture1" value="picture1" onclick="">
+                      <img class="check-icon" src="/images/logo/logod/1.jpg" />
+                    </label>
+                  </li>
+                  <li>
+                    <label class="checkbox-wrap">
+                      <input class="chkk" type="checkbox" name="picture2" value="picture2" onclick="">
+                      <img class="check-icon" src="/images/logo/logod/2.jpg" />
+                    </label>
+                  </li>
+                  <li>
+                    <label class="checkbox-wrap">
+                      <input class="chkk" type="checkbox" name="picture3" value="picture3" onclick="">
+                      <img class="check-icon" src="/images/logo/logod/3.jpg" />
+                    </label>
+                  </li>
+                  <li>
+                    <label class="checkbox-wrap">
+                      <input class="chkk" type="checkbox" name="picture4" value="picture4" onclick="">
+                      <img class="check-icon" src="/images/logo/logod/4.jpg" />
+                    </label>
+                  </li>
+                  <li>
+                    <label class="checkbox-wrap">
+                      <input class="chkk" type="checkbox" name="picture5" value="picture5" onclick="">
+                      <img class="check-icon" src="/images/logo/logod/5.jpg" />
+                    </label>
+                  </li>
+                  <li>
+                    <label class="checkbox-wrap">
+                      <input class="chkk" type="checkbox" name="picture6" value="picture6" onclick="">
+                      <img class="check-icon" src="/images/logo/logod/6.jpg" />
+                    </label>
+                  </li>
+                  <li>
+                    <label class="checkbox-wrap">
+                      <input class="chkk" type="checkbox" name="picture7" value="picture7" onclick="">
+                      <img class="check-icon" src="/images/logo/logod/7.jpg" />
+                    </label>
+                  </li>
+                  <li>
+                    <label class="checkbox-wrap">
+                      <input class="chkk" type="checkbox" name="picture8" value="picture8" onclick="">
+                      <img class="check-icon" src="/images/logo/logod/8.jpg" />
+                    </label>
+                  </li>
+                  <li>
+                    <label class="checkbox-wrap">
+                      <input class="chkk" type="checkbox" name="picture9" value="picture9" onclick="">
+                      <img class="check-icon" src="/images/logo/logod/9.jpg" />
+                    </label>
+                  </li>
+                      <input id="imgRank1" class="imgRank1" type="text control-form" name="imageRank" value="" hidden/>
+                      <input id="imgRank2" class="imgRank2" type="text control-form" name="imageRank" value="" hidden/>
+                      <input id="imgRank3" class="imgRank3" type="text control-form" name="imageRank" value="" hidden/>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr class="hr" />
+          <div class="contain-meddle">
+            <div class="sub-contain1">
+              <div class="contain-left">
+                <h1>4.</h1>
+                <h4>로고의 성격을 말해주세요</h4>
+              </div>
+              <div class="contain-right">
+                <div class="tendency-section">
+                  <table class="range-table">
+                    <tbody>
+                      <tr>                        
+                      </tr>
+                      <tr>
+                        <td>여성스러운</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range1" data-orientation="horizontal" type="range" min="0" max="1000" value=""/><input class="sliderVal1" style="width:50px;" name="ranged" type="text" value="" hidden/></span></td>
+                        <td>남성스러운</td>
+                      </tr>
+                      <tr>
+                        <td>젊은</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range2" data-orientation="horizontal" type="range" min="0" max="1000" value=""/><input class="sliderVal2" style="width:50px;" name="ranged" type="text" value="" hidden/></span></td>
+                        <td>성숙한</td>
+                      </tr>
+                      <tr>
+                        <td>럭셔리한</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range3" data-orientation="horizontal" type="range" min="0" max="1000" value=""/><input class="sliderVal3" style="width:50px;" name="ranged" type="text" value="" hidden/></span></td>
+                        <td>대중적인</td>
+                      </tr>
+                      <tr>
+                        <td>모던한</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range4" data-orientation="horizontal" type="range" min="0" max="1000" value=""/><input class="sliderVal4" style="width:50px;" name="ranged" type="text" value="" hidden/></span></td>
+                        <td>클래식한</td>
+                      </tr>
+                      <tr>
+                        <td>재미있는</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range5" data-orientation="horizontal" type="range" min="0" max="1000" value=""/><input class="sliderVal5" style="width:50px;" name="ranged" type="text" value="" hidden /></span></td>
+                        <td>진지한</td>
+                      </tr>
+                      <tr>
+                        <td>시끄러운</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range6" data-orientation="horizontal" type="range" min="0" max="1000" value=""/><input class="sliderVal6" style="width:50px;" name="ranged" type="text" value="" hidden/></span></td>
+                        <td>조용한</td>
+                      </tr>
+                      <tr>
+                        <td>단순한</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range7" data-orientation="horizontal" type="range" min="0" max="1000" value=""/><input class="sliderVal7" style="width:50px;" name="ranged" type="text" value="" hidden/></span></td>
+                        <td>복잡한</td>
+                      </tr>
+                      <tr>
+                        <td>모호한</td>
+                        <td><span class="table-meddle"><input class="sliderBar" id="range8" data-orientation="horizontal" type="range" min="0" max="1000" value=""/><input class="sliderVal8" style="width:50px;" name="ranged" type="text" value="" hidden/></span></td>
+                        <td>정확한</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <hr class="hr" />
+          <div class="contain-meddle">
+            <div class="sub-contain1">
+              <div class="contain-left">
+                <h1>5.</h1>
+                <h4>어떤 색상을 원하세요?</h4>
+              </div>
+              <div class="contain-right">
+                <div class="color-section">
+                  <label for="color" class="col-sm-3 control-label" style="margin-top:20px;">색상을 입력해주세요</label>
+                  <input class="form-control" type="text" id="color" name="color" placeholder="예시>하얀색, 노란색" value="">
+                </div>
+                <div style="color:#6E6767; font-size:15px">
+                  <p style="margin-top:20px; margin-bottom: 20px;">보편적으로 색상이 가진 상징적 의미는 아래와 같습니다.</p>
+                  <ul style="margin-top:20px">
+                    <li style="list-style:square">
+                      빨간색: 열정, 분노, 활력, 사랑, 위험
+                    </li>
+                    <li style="list-style:square">
+                      노란색: 지식, 에너지, 환희, 지성, 청춘
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="hr" />
+          <div class="contain-meddle">
+            <div class="sub-contain1">
+              <div class="contain-left">
+                <h1>6.</h1>
+                <h4>로고는 어디에 사용하실 계획인가요?</h4>
+              </div>
+              <div class="contain-right">
+                <div class="forlogo">
+                  <div class="print-section forse">
+                    <input class="" type="checkbox" name="purpose" value="print" id="print">
+                    <label for="print" class="control-label6">프린트물(명함, 편지지, 브로셔 등)</label>
+                  </div>
+                  <div class="internet-section forse">
+                    <input class="" type="checkbox" name="purpose" value="internet" id="internet">
+                    <label for="internet" class="control-label6">인터넷(웹사이트, 인터넷광고, 배너등..</label>
+                  </div>
+                  <div class="goods-section forse">
+                    <input class="" type="checkbox" name="purpose" value="goods" id="goods">
+                    <label for="goods" class="control-label6">상품(컵, 티셔츠 등)</label>
+                  </div>
+                  <div class="board-section forse">
+                    <input class="" type="checkbox" name="purpose" value="title" id="board">
+                    <label for="board" class="control-label6">간판(광고판, 게시판 등)</label>
+                  </div>
+                  <div class="screen-section forse">
+                    <input class="" type="checkbox" name="purpose" value="screen" id="screen">
+                    <label for="screen" class="control-label6">Tv/스크린</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="hr" />
+          <div class="contain-meddle">
+            <div class="sub-contain1">
+              <div class="contain-left">
+                <h1>7.</h1>
+                <h4>디자이너들이 참고할 수 있는 이미지와</h4>
+                <h4>스케치, 템플릿 등의 자료가 있으신가요?</h4>
+              </div>
+              <div class="contain-right">
+                <div class="upload-contain" id="uploadWrap">
+                  <div class="panel panel-default">
+                    <div class="panel-body" name="reference">
+                      <ul id="uploaded">
+                      </ul>
+                    </div>
+                  </div>
+                  <input type="file" name="uploadfile" />
+                  <input type="button" id="uploadbutton" value="파일업로드" />
+                </div>
+              </div>
+            </div>
+            <hr class="hr" />
+            <div class="contain-meddle">
+              <div class="sub-contain1">
+                <div class="contain-left">
+                  <h1>8.</h1>
+                  <h4>디자인 브리핑 상세내용</h4>
+                </div>
+                <div class="contain-right" style="padding:0 auto;">
+                  <div class="description-section">
+                    <textarea cols=100 rows=20 onclick="if(this.value=='내용을 입력하세요'){this.value=''}" id="design-description" name="designDescription">내용을 입력하세요</textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+        <hr class="hr" />
+        <div class="content-bottom col-md-12">
+          <div class="next-box" id="next-box">
+            <input type="submit" class="next" value="NEXT" />
+          </div>
+        </div>
+        </div>
+      </div>
+
+  </div>
+  <!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+  <script src="/javascripts/nav.js"></script>
+  <script src="/javascripts/slider.js"></script>
+  <script>
+  (function(){
+    $(document).ready(function(){
+      $('.sliderBar').on('change', function(){
+        var sliderBar1 = $('#range1').val();
+        var sliderBar2 = $('#range2').val();
+        var sliderBar3 = $('#range3').val();
+        var sliderBar4 = $('#range4').val();
+        var sliderBar5 = $('#range5').val();
+        var sliderBar6 = $('#range6').val();
+        var sliderBar7 = $('#range7').val();
+        var sliderBar8 = $('#range8').val();
+
+
+        $('.sliderVal1').val(sliderBar1);
+        $('.sliderVal2').val(sliderBar2);
+        $('.sliderVal3').val(sliderBar3);
+        $('.sliderVal4').val(sliderBar4);
+        $('.sliderVal5').val(sliderBar5);
+        $('.sliderVal6').val(sliderBar6);
+        $('.sliderVal7').val(sliderBar7);
+        $('.sliderVal8').val(sliderBar8);
+      });
+    });
+  })();
+
+    function CountChecked(obj) {
+      var chkbox = document.getElementsByClassName("chk");
+      var chkCnt = 0;
+      for (var i = 0; i < chkbox.length; i++) {
+        if (chkbox[i].checked) {
+          chkCnt++;
+        }
+      }
+      if (chkCnt > 3) {
+        alert("3개까지만 선택가능합니다.");
+        obj.checked = false;
+        return false;
+      }
+    }
+
+    $(function () {
+      $("#uploadbutton").click(function () {
+        var formData = new FormData();
+        formData.append("uploadfile", $("input[name=uploadfile]")[0].files[0]);
+        $.ajax({
+          url: '/launch/new/ajax_images',
+          enctype: "multipart/form-data",
+          processData: false,
+          contentType: false,
+          data: formData,
+          type: 'POST',
+          success: function (result) {
+            console.log("result :" + JSON.stringify(result));
+            if (result.message = "파일이 업로드 되었습니다.") {
+              console.log("result : " + result)
+              $("#status").empty().text("업로드 되었습니다.");
+              var newdiv1 = $('<img src="/uploads/' + result.DBData.saveFileName +
+                '" style="max-width : 100px; max-height:100px;"/><input type="text" name="DBdataId" value="' + result.DBData._id +'"hidden/>');
+              var newdiv2 = $('<br/><li>' + result.DBData.orgFileName + '  :  ' + result.message +
+                '</li>');
+              var newdiv3 = $('<input type="hidden" name="uploadedfile" value="' + result.DBData.saveFileName +
+                ' "/><br/>');
+              $('#uploaded').append(newdiv2, newdiv3, newdiv1);
+            }
+          },
+          error: function (request, status, error) {
+            if (request.message = "File too large") {
+              alert("파일이 5mb를 초과하셨습니다.")
+            }
+            alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" +
+              error);
+          }
+        });
+      });
+    });
+
+$(document).ready(function () {
+  var items = [];
+  $('.chkk').on('change', function () {
+          var isChecked = $(this).prop('checked');
+          var chkCnt = $(".chkk:checked").length;
+
+          if (isChecked){
+            if (chkCnt > 3) {
+              items.push(this);
+              item = items.shift();
+              $(item).prop('checked', false);
+            } else {
+              items.push(this);
+            }
+          } else {
+            items.splice(items.indexOf(this), 1);
+          }
+        console.log("==============");
+
+        if(items.length ===0 ){
+          $('.check-icon').removeClass('number0');
+          $('.check-icon').removeClass('number1');
+          $('.check-icon').removeClass('number2');
+        };
+        if(items.length ===1 ){
+          $('.check-icon').removeClass('number0');
+          $('.check-icon').removeClass('number1');
+          $('.check-icon').removeClass('number2');
+          $(items[0]).next().addClass('number0');
+          var imag1 = items[0].value;
+        };
+        if(items.length ===2 ){
+          $('.check-icon').removeClass('number0');
+          $('.check-icon').removeClass('number1');
+          $('.check-icon').removeClass('number2');
+          $(items[0]).next().addClass('number0');
+          $(items[1]).next().addClass('number1');
+          var imag1 = items[0].value;
+          var imag2 = items[1].value;
+        };
+        if(items.length ===3 ){
+          $('.check-icon').removeClass('number0');
+          $('.check-icon').removeClass('number1');
+          $('.check-icon').removeClass('number2');
+          $(items[0]).next().addClass('number0');
+          $(items[1]).next().addClass('number1');
+          $(items[2]).next().addClass('number2');
+          var imag1 = items[0].value;
+          var imag2 = items[1].value;
+          var imag3 = items[2].value; 
+        };
+        $('#imgRank1').val(imag1);
+        $('#imgRank2').val(imag2);
+        $('#imgRank3').val(imag3);
+    });
+});
+  </script>
+</body>
+
+</html>

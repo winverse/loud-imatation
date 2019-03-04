@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/station.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+    <p class="main-word">포인트 충전소 입니다.</p>
+    <form action="" id="orderForm">
+    <div class="main-container">
+      <div class="first-container">
+        <div class="left-section">
+          <h2><b>Step 1</b></h2>
+          <h5>결제하실 금액을 입력해주세요.</h5>        
+        </div>
+        <div class="right-section">
+          <div class="point-section">
+            <div><label for="buyer_email">이메일을 입력해주세요</label></div>
+            <div><input class="form-control" type="email" name="buyer_email" id="buyer_email"/></div>
+            <div style="margin-top:20px;"><label for="buyer_name">성명을 입력해주세요</label></div>
+            <div><input class="form-control" type="text" name="buyer_name" id="buyer_name"/></div>
+
+            <div style="margin-top:20px;"><label for="point">충전 하실 포인트</label></div>
+            <div style="margin-top:-2px;"><input class="form-control" type="number" name="buyer_amount" id="point"/></div>
+
+            <select class="chkk">
+              <option value="card" class="card">신용카드</option>
+              <option value="trans" class="trans">계좌이체</option>
+              <option value="noAccount" class="noAccount">무통장 입금</option>
+            </select>
+            
+            <input type="button" id="payment-btn">결제하기</input>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"></script>
+    <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.2.js"></script>
+<script>
+
+
+$(document).ready(function(){
+    $('#payment-btn').on('click', function(){
+        var method = $('.chkk option:selected').val(); 
+        var amount = $('input[name=buyer_amount]').val();
+        var buyer_email = $('input[name=buyer_email]').val();
+        var buyer_name = $('input[name=buyer_name]').val(); 
+        if (!buyer_email){
+          alert("이메일을 입력해주세요");
+          buyer_email.focus();
+          return false
+          };
+          if (!buyer_name){
+          alert("성명을 입력해주세요");
+          buyer_name.focus();
+          return false
+          };
+        if(method !== 'noAccount'){
+          var IMP = window.IMP; 
+          IMP.init('imp32175055'); 
+          //아임호트 사이트에서 받아온다( http://www.iamport.kr/ )
+          IMP.request_pay({
+              pg : 'html5_inicis',
+              pay_method : method,
+              merchant_uid : 'merchant_' + new Date().getTime(),
+              name : 'LoudPoint 결제',
+              amount : amount ,
+              buyer_email : buyer_email,
+              buyer_name : buyer_name,
+              m_redirect_url : 'http://localhost:4020/station/complete'
+          }, function(rsp){
+              if ( rsp.success ) {
+                  //요청 성공후 ajax POST요청한다.
+                  $.ajax({
+                      url: '/station/complete',
+                      type: 'POST',
+                      data : {
+                          imp_uid : rsp.imp_uid,
+                          merchant_uid : rsp.merchant_uid,
+                          paid_amount : rsp.paid_amount,
+                          apply_num : rsp.apply_num,
+                          buyer_email : buyer_email,
+                          buyer_name : buyer_name,
+
+                          status : "결제완료",
+                      }
+                  }).done( function(res){
+                      alert("결제가 완료되었습니다.");
+                      document.location.href = "/station/success";
+                  }).fail( function(error){
+                      console.log(error); 
+                  });
+
+                } else {
+                    let msg = '결제에 실패하였습니다.';
+                    msg += '에러내용 : ' + rsp.error_msg;
+                    alert(msg);
+                };
+              });
+              return false;
+
+          } else {
+            alert("무통장 결제 입니다.");
+            document.location.href = "/station/success";
+          };
+        });
+    });
+
+</script>
+</body>
+
+</html>

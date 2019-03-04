@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/contest/contestLaunch.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+    <p class="main-word">디자인 콘테스트를 개최합니다.</p>
+    <div class="main-contain">
+      <div class="contain-left1 class="col-md-6"">
+      로고 디자인
+      </div>
+      <div class="contain-right1 class="col-md-6"">
+       <div class="funkyradio">
+        <div class="funkyradio-success" onclick="location.href='/launch/new/logo'">
+            <input type="radio" name="radio" id="radio1" />
+            <label for="radio1">로고 디자인</label>
+        </div>
+        <div class="funkyradio-danger" onclick="location.href='/launch/new/logo&bizcard'">
+            <input type="radio" name="radio" id="radio2" />
+            <label for="radio2">로고 + 명함</label>
+        </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"/>
+    <script>
+      
+    </script>
+</body>
+
+</html>

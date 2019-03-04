@@ -1,0 +1,42 @@
+{
+    "message": "Cast to number failed for value \"undefined\" at path \"id\" for model \"user\"",
+    "name": "CastError",
+    "stringValue": "\"undefined\"",
+    Cast to number failed
+    for value "kind": "number",
+    "value": "undefined",
+    "path": "id"
+},
+
+req.file: {
+        "fieldname": "userPhoto",
+        "originalname": "4.jpg",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./uploads",
+        "filename": "userPhoto-1507708711660",
+        "path": "uploads\\userPhoto-1507708711660",
+        "size": 137809
+    },
+
+    {
+        "success": false,
+        "message": {
+            "message": "Cast to number failed for value \"upload\" at path \"id\" for model \"contests\"",
+            "name": "CastError",
+            "stringValue": "\"upload\"",
+            "kind": "number",
+            "value": "upload",
+            "path": "id"
+        }
+    }
+
+{
+    "message": "Cast to number failed for value \"ajax_image\" at path \"id\" for model \"contests\"",
+    "name": "CastError",
+    "stringValue": "\"ajax_image\"",
+    "kind": "number",
+    "value": "ajax_image",
+    "path": "id"
+}
+

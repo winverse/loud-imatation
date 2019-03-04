@@ -1,0 +1,136 @@
+.main-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #F8F8F8;
+}
+
+.main-word{
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top : 30px;
+    padding-bottom : 40px;
+    font-weight: 900;
+}
+
+.hr {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    height: 2px;
+    line-height: 0px;
+}
+
+.left-section{
+    width:40%;
+    padding-left: 20px;
+}
+.right-section{
+    width:60%;
+}
+
+
+/* first-container */
+.first-container{
+    display: flex;
+    flex-flow:row nowrap;
+    width:90%;
+    margin: 0 auto;
+}
+
+
+/* // first-container */
+
+/* second-container */
+.second-container{
+    display: flex;
+    flex-flow:row nowrap;
+    width:90%;
+    margin: 0 auto;
+}
+.pay-container{
+    background-color: white;
+    border : 4px solid #eee;
+    width:80%;
+    padding: 20px;
+}
+.pay-container ul{
+    list-style: none;
+    padding:0;
+    margin: 0;
+}
+.pay-container ul li{
+    font-size:18px;
+    padding-top:10px;
+}
+.hr {
+    width: 95%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    height: 2px;
+    line-height: 0px;
+}
+.span-right{
+    float: right;
+    text-align: right;
+}
+
+
+/* // second-container */
+
+
+
+
+/* third-container */
+.third-container{
+    display: flex;
+    flex-flow:row nowrap;
+    width:90%;
+    margin: 0 auto;
+}
+
+.pay-section{
+    padding:20px;
+    width:80%;
+}
+.pay-section ul{
+    list-style: none;
+    padding:0;
+    margin: 0;
+}
+
+.pay-section ul li{
+    font-size: 20px;
+    margin-top:10px;
+}
+.next-btn{
+    width:80%;
+}
+.next-buttons{
+    float: right;
+    margin:20px;
+    background-color: #495161;
+    color:white;
+    width: 250px;
+    padding: 15px 0;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+
+
+/* third-container */

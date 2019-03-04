@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/contest/payment.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+    <form action="" method="post">
+    <p class="main-word">디자인 콘테스트를 개최합니다</p>
+    <div class="main-container">
+
+      <!-- first-container -->
+      <div class="first-container">
+        <div class="left-section">      
+          <h2><b>Step 4</b></h2>
+          <h5>결제 및 등록 완료</h5>
+        </div>
+        <div class="right-section">
+        
+        </div>
+      </div>
+      <!-- first-container -->
+
+      <hr class="hr" />
+      <!-- second container -->
+      <div class="second-container">
+        <div class="left-section">      
+          <h2><b>Total</b></h2>
+          <h5>결제하실 총 금액입니다.</h5>
+        </div>
+        <div class="right-section">
+          <div class="pay-container">
+            <div class="header-section">
+              <ul>
+                <li><div><b>콘테스트 항목</b></div></li>
+                <li>
+                <p style="padding-top:10px;">
+                <% if(contest.contestType== 'logo'){ %>
+                    <span>로고 디자인</span>
+                <% } %> 
+                /
+                <% if(contest.class=='bronze'){ %>
+                    <span>브론즈 패키지</span>
+                <% } %> 
+                <% if(contest.class=='silver'){ %>
+                    <span>실버 패키지</span>
+                <% } %> 
+                <% if(contest.class=='gold'){ %>
+                    <span>골드 패키지</span>
+                <% } %> 
+                <% if(contest.class=='platinum'){ %>
+                    <span>플래티넘 패키지</span>
+                <% } %> 
+                </p>
+                </li>
+              </ul>
+              <hr class="hr1" />
+              <ul>
+                <div>
+                  <li><span>상금1등</span><div class="span-right"><span><b><%=contest.award1%>원</b></span></div></li>
+                </div>
+                <% if(contest.award2 > 1){%>
+                  <div>
+                    <li><span>상금2등</span><div class="span-right"><span><b><%=contest.award2%>원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.award3 > 1 ){%>
+                  <div>
+                    <li><span>상금3등</span><div class="span-right"><span><b><%=contest.award3%>원</b></span></div></li>
+                  </div>
+                <%}%>
+                <div>
+                  <li><span>공모전 등록비</span><div class="span-right"><span><b><%=contest.registerFee%>원</b></span></div></li>
+                </div>
+              </ul>
+              <hr class="hr1" />
+              <ul>
+                <% if(contest.prizeCommiton > 1 ){%>
+                  <div>
+                    <li><span>상금 수수료 부담</span><div class="span-right"><span><b><%=contest.prizeCommiton%>원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.banner > 1 ){%>
+                  <div>
+                    <li><span>홍보 배너 게재</span><div class="span-right"><span><b><%=contest.banner%>원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.NDA > 1 ){%>
+                  <div>
+                    <li><span>비밀 유지 계약(NDA)</span><div class="span-right"><span><b><%=contest.NDA%>원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.topDesigner == 0 ){%>
+                  <div>
+                    <li><span>TOP디자이너 콘테스트</span><div class="span-right"><span><b><%=contest.topDesigner%>원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.highlight > 1 ){%>
+                  <div>
+                    <li><span>하이라이트</span><div class="span-right"><span><b><%=contest.highlight%>원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.period =='1week' ){%>
+                  <div>
+                    <li><span>공모 기간 1주일</span><div class="span-right"><span><b>0원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.period =='2week' ){%>
+                  <div>
+                    <li><span>공모 기간 2주일(1주일 연장)</span><div class="span-right"><span><b>100000원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.period =='3week' ){%>
+                  <div>
+                    <li><span>공모 기간 4주일(2주일 연장)</span><div class="span-right"><span><b>100000원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.exAd == '0' ){%>
+                  <div>
+                    <li><span>트위터/외부디자인 커뮤니티 홍보</span><div class="span-right"><span><b>0원</b></span></div></li>
+                  </div>
+                <%}%>
+                <% if(contest.emailAd== '0' ){%>
+                  <div>
+                    <li><span>이메일 뉴스레터 홍보</span><div class="span-right"><span><b>0원</b></span></div></li>
+                  </div>
+                <%}%>
+              </ul>
+              <hr class="hr1" />
+                <ul>
+                  <% if(contest.VAT > 1 ){%>
+                    <div>
+                      <li><span>부가세(10%)</span><div class="span-right"><span><b><%=contest.VAT%>원</b></span></div></li>
+                    </div>
+                  <%}%>
+                </ul>
+              <hr class="hr1" />
+                <ul>
+                  <% if(contest.totalFee > 1 ){%>
+                    <div>
+                      <li><span>합계</span><div class="span-right"><span><b><%=contest.totalFee%>원</b></span></div></li>
+                    </div>
+                  <%}%>
+                </ul>    
+             </div> 
+          </div>
+        </div>
+      </div>
+      <!-- //second container -->
+
+      
+      <hr class="hr" />
+      <!-- third container -->
+      <div class="third-container">
+        <div class="left-section">      
+          <h2><b>PayInfo</b></h2>
+        </div>
+        <div class="right-section">
+          <div class="pay-section">
+            <ul>
+              <div>
+                <li><span>보유중인 포인트</span><div class="span-right"><span><b><%=user.point%>P</b></span></div></li>
+              </div>
+              <hr class="hr1" />
+              <div>
+                <li><span>결제 할 포인트</span><div class="span-right"><span><b><%=contest.totalFee%>P</b></span></div></li>
+              </div>
+            </ul>
+          </div>
+            <input type="text" name="uPoint" class="uPoint" value="<%=user.point%>" hidden/>
+            <input type="text" name="uId" class="uId" value="<%=user.id%>" hidden/>
+            <input type="text" name="feePoint" class="feePoint" value="<%=contest.totalFee%>" hidden/>
+            <input type="text" name="paymentB" class="paymentB" value="<%=contest.payment%>" hidden/>
+          <div class="next-btn">
+            <input class="next-buttons" type="submit" class="next" value="결제"/>
+          </div>
+          </form>
+        </div>
+      </div>
+      <!-- //third container -->
+    </div>
+    <!--Main container-->
+</div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.next-buttons').on('click', function(){
+          if(confirm("결제하시겠습니까?")){
+            var uPoint = parseInt($('.uPoint').val());
+            var feePoint = parseInt($('.feePoint').val());
+            if(uPoint < feePoint){
+              if(confirm("포인트가 부족합니다. 충전소로 이동하시겠습니까?")){ 
+                location.replace("/station/point");                    
+                window.location.href = "/station/point";
+                return false;
+              } else {
+                return false;
+              };
+            }else{
+              var uPoint = parseInt($('.uPoint').val());
+              var feePoint = parseInt($('.feePoint').val());
+              var result = uPoint - feePoint;
+              $('.uPoint').val(parseInt(result));
+             var paymentB = $('.paymentB').val(true);
+              alert('결제가 완료되었습니다.');              
+            };
+          } else {
+            return false;
+          };
+        });
+      });
+    </script>
+</body>
+
+</html>

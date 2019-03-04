@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SuperCrown">
+  <meta name="description" content="반응형 사이트 만들기 튜토리얼 입니다.">
+
+  <!-- HTML5shiv -->
+  <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- IE checker -->
+  <script src="/javascripts/ie-checker-min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/main/main.css">
+    <link rel="stylesheet" href="/stylesheets/contestView/view.css">
+    
+</head>
+<body>
+<div id="wrap">
+    <!-- ======  Nav section start  ====== -->
+    <% include ../partials/nav.ejs %>
+    <!-- ======  Nav section end  ====== -->
+    <!-- all-wrap -->
+    <div id="all-wrap">
+      <div class="container">
+        <ul>
+          <li class="list-box">
+            <div class="board-container">
+              <div class="board1">
+                <div class="img-section">
+                  <img src="/images/contestView/thumbimg_logo.png"/>
+                </div>
+                <div class="list">
+                  <div class="list-top">
+                    <span><%=contest.contestType%></span> &nbsp;|&nbsp; <span><b><%=contest.title%></b></span>
+                  </div>
+                  <div class="list-bottom">
+                   <span><%=contest.name%></span>&nbsp;|&nbsp;<span><%=contest.company%></span>&nbsp&nbsp&nbsp<span class="click-section"><b>조회수</b> : 명 </span>
+                  </div>
+                  <hr class="hr1"/>
+                </div>
+              </div>
+              <div class="board2">
+                <p><%=contest.serviceDescription%></p>
+              </div>
+              <div class="board3">
+                <div class="board3-floor1">
+                <p>
+                  <%if(contest.award1 && contest.award1 != 0 ){%> 
+                    <span>1등 :<%=contest.award1%> 원</span>&nbsp;
+                  <%}%>
+                  <%if(contest.award2 && contest.award2 != 0){%> 
+                    <span>2등 : <%=contest.award2%>원</span>&nbsp;
+                  <%}%>
+                  <%if(contest.award3 && contest.award3 != 0){%> 
+                    <p><span>3등 :<%=contest.award3%> 원</span></p>
+                  <%}%>
+                </p>  
+                </div>
+                <div class="board3-floor2">
+                  <p>남은기간: </p>
+                </div>
+                <div class="board3-floor3">
+                <p> 참여자: 명</p>
+                </div>
+                <div class="board3-floor4">
+                  관심리스트 추가
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <!-- second-section -->
+        <div class="second-section">
+          <div class="btn-section">
+              <a href="/contest/view/<%=contest.id%>" class="btn-1">참여작 보기</a>
+              <a href="/contest/view/brief/<%=contest.id%>" class="btn-2">브리핑 보기</a>
+              <% if(users != null && users.name == contest.author){%>
+                <a href="/contest/transfer/<%=contest.id%>" class="btn-3">우승작 전송</a>
+              <%} else {%>
+                <a href="/contest/view/join/<%=contest.id%>" class="btn-3">콘테스트 참여</a>
+              <%}%>
+              <%if(contest.firstWin != null){%>
+                <%if(users.name == parti2[0].author){%>
+                  <a href="/contest/transfer/<%=contest.id%>" class="btn-4">우승!!</a>
+                <%}%>
+              <%}else{%> 
+                <div></div>
+              <%}%>
+          </div>
+        </div>
+      <!-- //second-section -->
+            <div class="third-section">
+              <div class="third-wrap">
+                <div class="row">
+                <%if(contest.parti_id[0] != null){%>
+                  <ul>
+                    <% if (users != null && contest.author == users.name){%>
+                        <% parti.forEach(function(part, i){
+                          if(part.author == users.name || contest.author == users.name){
+                        %>            
+                          <li class="line">
+                            <a href="/contest/entry/<%=part.id%>">
+                            <img src="/uploads/<%=part.thumnailImage%>"/></a>
+                            <p style="margin-top:10px;"><span><%=part.author%></span>
+                            <%if(contest.passing[0] == part.id || contest.passing[1] == part.id || contest.passing[2] == part.id){%>
+                              <span>1차 선정!</span>
+                            <%}%>
+                            <%if(contest.firstWin == part.id){%>
+                              <span style="background:yellow; color:black"><b>1위 선정!</b></span>
+                            <%}%>
+                            <%if(contest.secondWin == part.id){%>
+                              <span style="background:blue; color:white"><b>2위 선정!</b></span>
+                            <%}%>
+                            <%if(contest.thirdWin == part.id){%>
+                              <span style="background:gold; color:white"><b>3위 선정!</b></span>
+                            <%}%>
+                            </p>
+                            <div class="starrr"></div>
+                            <input type="text" name="rated" class="choice" value="<%=part.rated%>" hidden/>
+                          </li>
+        
+                        <%} else { %>
+                          <li class="line">
+                            <img src="/images/contestView/img_lock.png"/>
+                            <p style="margin-top:10px;"><%=part.author%></p>
+                            <div class="starrr"></div>
+                            <input type="text" name="rated" class="choice" value="<%=part.rated%>" hidden/>
+                          </li>  
+                       <% }
+                        }) %>
+                   <% }else{ %>
+                         <%parti.forEach(function(part, i){
+                            if(users != null && part.author == users.name){%>
+                              <li class="line">
+                                <a href="/contest/entry/<%=part.id%>">
+                                <img src="/uploads/<%=part.thumnailImage%>"/></a>
+                                <p style="margin-top:10px;"><%=part.author %></p>
+                                <%if(contest.passing[0] == part.id || contest.passing[1] == part.id || contest.passing[2] == part.id){%>
+                                  <span>1차 선정!</span>
+                                <%}%>
+                                <%if(contest.firstWin == part.id){%>
+                                  <span style="background:yellow; color:white"><b>1위 선정!</b></span>
+                                <%}%>
+                                <%if(contest.secondWin == part.id){%>
+                                  <span style="background:blue; color:white"><b>2위 선정!</b></span>
+                                <%}%>
+                                <%if(contest.thirdWin == part.id){%>
+                                  <span style="background:gold; color:white"><b>3위 선정!</b></span>
+                                <%}%>
+                                <div class="starrr"></div>
+                                <input type="text" name="rated" class="choice" value="<%=part.rated%>" hidden/>
+                              </li>
+                            <%} else {%>
+                              <li class="line">
+                                <img src="/images/contestView/img_lock.png"/>
+                                <p style="margin-top:10px;"><%=part.author%></p>
+                                <div class="starrr"></div>
+                                <input type="text" name="rated" class="choice" value="<%=part.rated%>" hidden/>
+                              </li> 
+                            <%}%> 
+                        <%})%>
+                   <% } %>
+                  </ul>
+                <%}else{%>
+                  <div class="noUser"><p>아직 참여하신 디자이너가 없습니다.</p></div>
+                <%}%> 
+
+                                    
+                </div>
+              </div>
+            </div>
+        </div>
+      <!-- //container-->
+    </div>
+  <!-- //all-wrap -->
+</div>
+<!-- ======  Wrap section end  ====== -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/nav.js"></script>
+    <script src="/javascripts/starrr.js"></script>
+    <script>
+
+      $(document).ready(function(){
+        var rated = document.getElementsByName('rated');
+        var starrr = document.getElementsByClassName('starrr');
+          rated.forEach(function(rate, i){
+          var rating = rated[i].value;
+            $(starrr[i]).starrr({
+              rating : rating,
+              readOnly: true
+          });
+        });
+      });
+    </script>
+</body>
+
+</html>
